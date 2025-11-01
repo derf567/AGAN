@@ -1,0 +1,67 @@
+{
+  "index": 70,
+  "filename": "Copy of KIMG0129.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0129.JPG",
+  "timestamp": "2025-10-27T14:27:01.635913",
+  "detection": {
+    "rain_score": 0.18,
+    "glare_score": 0.012217017954722872,
+    "needs_enhance": true,
+    "glare_pixel_count": "5008",
+    "glare_percentage": 1.2217017954722873,
+    "contrast": 63.84778741466808,
+    "brightness": 119.57458772443404,
+    "sharpness": 112.87466693561639
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.6911027431488037,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 63.84778741466808,
+        "brightness": 254.80710862619807,
+        "saturation": 3.393370607028754
+      },
+      "enhanced": {
+        "contrast": 60.82883254540759,
+        "brightness": 160.19708466453673,
+        "saturation": 12.411142172523961
+      },
+      "improvements": {
+        "contrast_gain": -3.01895486926049,
+        "brightness_reduction": 94.61002396166134,
+        "saturation_gain": 9.017771565495208,
+        "glare_area_reduced": 0.9998003194888179,
+        "ssim": 0.9740198652107199,
+        "psnr": 21.843201124634945
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0129.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 63.84778741466808,
+      "brightness": 254.80710862619807,
+      "saturation": 3.393370607028754
+    },
+    "enhanced": {
+      "contrast": 60.82883254540759,
+      "brightness": 160.19708466453673,
+      "saturation": 12.411142172523961
+    },
+    "improvements": {
+      "contrast_gain": -3.01895486926049,
+      "brightness_reduction": 94.61002396166134,
+      "saturation_gain": 9.017771565495208,
+      "glare_area_reduced": 0.9998003194888179,
+      "ssim": 0.9740198652107199,
+      "psnr": 21.843201124634945
+    }
+  }
+}

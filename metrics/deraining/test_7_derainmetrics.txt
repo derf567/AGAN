@@ -1,0 +1,10 @@
+============================================================
+DERAIN METRICS REPORT
+============================================================
+Original: D:\School UIC\GAN\attentive-gan-derainnet\tools\Test_Images\test_7.png
+Derained: derain_ret.png
+
+PSNR: 7.18 dB
+SSIM: 0.2038
+Contrast (orig→derain): 55.75 → 50.12
+Brightness (orig→derain): 56.92 → 141.11

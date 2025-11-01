@@ -1,0 +1,70 @@
+{
+  "index": 122,
+  "filename": "834_rain.png",
+  "input_path": "D:\\School UIC\\GAN\\attentive-gan-derainnet\\tools\\Deraining\\834_rain.png",
+  "timestamp": "2025-10-27T11:53:16.884067",
+  "detection": {
+    "rain_score": 0.18,
+    "glare_score": 0.0,
+    "needs_enhance": true,
+    "glare_pixel_count": "0",
+    "glare_percentage": 0.0
+  },
+  "expected_mode": "ENHANCE",
+  "processing_time": 1.9111881256103516,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "ENHANCE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 26.609932963228836,
+        "brightness": 0.0,
+        "saturation": 0.0
+      },
+      "enhanced": {
+        "contrast": 47.86918768753229,
+        "brightness": 0.0,
+        "saturation": 0.0
+      },
+      "improvements": {
+        "contrast_gain": 21.259254724303453,
+        "brightness_reduction": 0.0,
+        "saturation_gain": 0.0,
+        "glare_area_reduced": 0.0,
+        "ssim": 0.2593018797289922,
+        "psnr": 3.230073894234808
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "ENHANCE",
+  "output_path": "derain_results\\enhanced_images\\enhanced_834_rain.png",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 26.609932963228836,
+      "brightness": 0.0,
+      "saturation": 0.0
+    },
+    "enhanced": {
+      "contrast": 47.86918768753229,
+      "brightness": 0.0,
+      "saturation": 0.0
+    },
+    "improvements": {
+      "contrast_gain": 21.259254724303453,
+      "brightness_reduction": 0.0,
+      "saturation_gain": 0.0,
+      "glare_area_reduced": 0.0,
+      "ssim": 0.2593018797289922,
+      "psnr": 3.230073894234808
+    }
+  },
+  "derain_outputs": [
+    "derain_ret.png",
+    "src_img.png",
+    "comparison.png",
+    "derain_results.txt"
+  ]
+}

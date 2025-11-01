@@ -1,0 +1,67 @@
+{
+  "index": 14,
+  "filename": "Copy of KIMG0070.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0070.JPG",
+  "timestamp": "2025-10-27T14:26:27.818388",
+  "detection": {
+    "rain_score": 0.203377039225337,
+    "glare_score": 0.00972628805620609,
+    "needs_enhance": false,
+    "glare_pixel_count": "3987",
+    "glare_percentage": 0.9726288056206089,
+    "contrast": 76.99938747825756,
+    "brightness": 81.28016198282592,
+    "sharpness": 1300.6275615273933
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.769460916519165,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 76.99938747825756,
+        "brightness": 254.40280912967143,
+        "saturation": 3.7529470780035115
+      },
+      "enhanced": {
+        "contrast": 72.83384150697557,
+        "brightness": 120.16152495610734,
+        "saturation": 55.71030850263356
+      },
+      "improvements": {
+        "contrast_gain": -4.165545971281986,
+        "brightness_reduction": 134.24128417356408,
+        "saturation_gain": 51.95736142463005,
+        "glare_area_reduced": 1.0,
+        "ssim": 0.97600901709146,
+        "psnr": 21.13319866252921
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0070.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 76.99938747825756,
+      "brightness": 254.40280912967143,
+      "saturation": 3.7529470780035115
+    },
+    "enhanced": {
+      "contrast": 72.83384150697557,
+      "brightness": 120.16152495610734,
+      "saturation": 55.71030850263356
+    },
+    "improvements": {
+      "contrast_gain": -4.165545971281986,
+      "brightness_reduction": 134.24128417356408,
+      "saturation_gain": 51.95736142463005,
+      "glare_area_reduced": 1.0,
+      "ssim": 0.97600901709146,
+      "psnr": 21.13319866252921
+    }
+  }
+}

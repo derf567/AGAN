@@ -1,0 +1,43 @@
+{
+  "final_status": "success",
+  "processing_mode": "ENHANCE",
+  "metrics": {
+    "brightness": {
+      "original": 24.939608010432895,
+      "enhanced": 57.22150623570675,
+      "improvement": 32.28189822527385
+    },
+    "contrast": {
+      "original": 41.84416991965845,
+      "enhanced": 46.72256854176123,
+      "improvement": 4.878398622102779
+    },
+    "dynamic_range": {
+      "original": 255.0,
+      "enhanced": 255.0,
+      "improvement": 0.0
+    },
+    "entropy": {
+      "original": 5.062526226043701,
+      "enhanced": 6.896533966064453,
+      "improvement": 1.834007740020752
+    },
+    "edge_strength": {
+      "original": 30.94651554900372,
+      "enhanced": 236.45771657320302,
+      "improvement": 205.5112010241993
+    },
+    "ssim": 0.331923519926796,
+    "psnr": 13.94601136552004,
+    "color_enhancement": {
+      "l_channel_improvement": 34.34810282773573,
+      "a_channel_variance": 0.09671859348764489,
+      "b_channel_variance": 1.17627403158746
+    },
+    "road_visibility": {
+      "original_brightness": 28.393963285065894,
+      "enhanced_brightness": 59.13101194220867,
+      "improvement": 30.73704865714278
+    }
+  }
+}

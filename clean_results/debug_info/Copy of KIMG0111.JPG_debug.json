@@ -1,0 +1,67 @@
+{
+  "index": 52,
+  "filename": "Copy of KIMG0111.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0111.JPG",
+  "timestamp": "2025-10-27T14:26:46.105346",
+  "detection": {
+    "rain_score": 0.20253979501223937,
+    "glare_score": 0.007882025761124121,
+    "needs_enhance": false,
+    "glare_pixel_count": "3231",
+    "glare_percentage": 0.7882025761124121,
+    "contrast": 45.64899690428391,
+    "brightness": 125.5160763075722,
+    "sharpness": 442.64416920842586
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.748727560043335,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 45.64899690428391,
+        "brightness": 254.79263385948622,
+        "saturation": 4.206128133704736
+      },
+      "enhanced": {
+        "contrast": 44.70976282451854,
+        "brightness": 191.587124729186,
+        "saturation": 13.224079232435779
+      },
+      "improvements": {
+        "contrast_gain": -0.9392340797653702,
+        "brightness_reduction": 63.205509130300214,
+        "saturation_gain": 9.017951098731043,
+        "glare_area_reduced": 0.9993809965954813,
+        "ssim": 0.983296563774996,
+        "psnr": 26.026215747961274
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0111.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 45.64899690428391,
+      "brightness": 254.79263385948622,
+      "saturation": 4.206128133704736
+    },
+    "enhanced": {
+      "contrast": 44.70976282451854,
+      "brightness": 191.587124729186,
+      "saturation": 13.224079232435779
+    },
+    "improvements": {
+      "contrast_gain": -0.9392340797653702,
+      "brightness_reduction": 63.205509130300214,
+      "saturation_gain": 9.017951098731043,
+      "glare_area_reduced": 0.9993809965954813,
+      "ssim": 0.983296563774996,
+      "psnr": 26.026215747961274
+    }
+  }
+}

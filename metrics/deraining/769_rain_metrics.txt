@@ -1,0 +1,70 @@
+======================================================================
+DERAINING MODEL TEST RESULTS
+======================================================================
+Timestamp: 2025-10-28 22:08:57
+Scene Type: DAY
+Input Image: D:\School UIC\GAN\attentive-gan-derainnet\tools\Test_Images\769_rain.png
+Weights Path: D:\School UIC\GAN\attentive-gan-derainnet\weights\derain_gan\derain_gan.ckpt-100000
+Label Path: None
+----------------------------------------------------------------------
+
+CONFIGURATION USED
+======================================================================
+
+PREPROCESSING:
+  resize_method: INTER_LINEAR
+  normalize_method: standard
+  color_space: BGR
+  denoise_before: False
+  denoise_strength: 3
+  contrast_adjust: 1.0
+
+INFERENCE:
+  target_width: 512
+  target_height: 512
+  preserve_aspect_ratio: True
+
+ATTENTION:
+  num_maps: 4
+  attention_threshold: 0.5
+  attention_weights: [0.25, 0.25, 0.25, 0.25]
+  use_weighted_attention: False
+  apply_attention_mask: False
+  mask_threshold: 0.3
+
+POSTPROCESSING:
+  apply_clahe: False
+  clahe_clip_limit: 2.5
+  clahe_tile_size: 8
+  sharpen: True
+  sharpen_strength: 0.4
+  bilateral_filter: False
+  bilateral_d: 9
+  bilateral_sigma_color: 75
+  bilateral_sigma_space: 75
+  gamma_correction: 1.1
+  saturation_boost: 1.05
+
+QUALITY:
+  min_ssim: 0.65
+  min_psnr: 18
+  check_quality: False
+  auto_retry_on_failure: False
+  max_retries: 2
+  fallback_to_original: False
+
+SYSTEM:
+  gpu_memory_fraction: 0.8
+  allow_growth: True
+  batch_size: 1
+  verbose: True
+  save_intermediate: False
+  output_format: png
+
+PERFORMANCE METRICS
+======================================================================
+SSIM: 0.88753
+PSNR: 25.02 dB
+======================================================================
+
+Results saved successfully!

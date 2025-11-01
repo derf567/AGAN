@@ -1,0 +1,6 @@
+QUICK SUMMARY
+==================================================
+Image: test_7
+Scene: NIGHT
+PSNR: 7.18 dB
+SSIM: 0.20383

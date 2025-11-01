@@ -1,0 +1,8 @@
+================================================================================
+PERFORMANCE STATISTICS - DERAINING FOLDER
+================================================================================
+
+Total Images:            200
+Mean Processing Time:    1.966s
+Median Processing Time:  0.723s
+Total Time:              393.18s (6.6 min)

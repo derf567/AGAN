@@ -1,0 +1,36 @@
+{
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+        "original": {
+            "contrast": 53.139896362071596,
+            "brightness": 254.69206773618538,
+            "saturation": 7.913101604278075
+        },
+        "enhanced": {
+            "contrast": 48.74668809472034,
+            "brightness": 166.15196078431373,
+            "saturation": 96.30971479500892
+        },
+        "improvements": {
+            "contrast_gain": -4.393208267351255,
+            "brightness_reduction": 88.54010695187165,
+            "saturation_gain": 88.39661319073085,
+            "glare_area_reduced": 1.0,
+            "ssim": 0.9730485634264406,
+            "psnr": 23.684667361932107
+        }
+    },
+    "quality_metrics": {
+        "contrast_original": 53.139896362071596,
+        "contrast_enhanced": 48.74668809472034,
+        "contrast_improvement": -4.393208267351255,
+        "contrast_improvement_pct": -8.267250348811164,
+        "brightness_original": 64.14630903590944,
+        "brightness_enhanced": 61.2504537470726,
+        "ssim": 0.9730485634264406,
+        "psnr": 23.684667361932107,
+        "quality_grade": "FAIR"
+    }
+}

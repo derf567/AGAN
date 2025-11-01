@@ -1,0 +1,67 @@
+{
+  "index": 4,
+  "filename": "Copy of KIMG0061.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0061.JPG",
+  "timestamp": "2025-10-27T14:26:20.135832",
+  "detection": {
+    "rain_score": 0.22255623049952797,
+    "glare_score": 0.008679742388758783,
+    "needs_enhance": false,
+    "glare_pixel_count": "3558",
+    "glare_percentage": 0.8679742388758783,
+    "contrast": 64.66192179510827,
+    "brightness": 131.92977166276347,
+    "sharpness": 773.7739478337633
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.677670955657959,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 64.66192179510827,
+        "brightness": 253.4044406970208,
+        "saturation": 3.3355817875210794
+      },
+      "enhanced": {
+        "contrast": 63.65715156749925,
+        "brightness": 180.18268690275437,
+        "saturation": 36.024732996065204
+      },
+      "improvements": {
+        "contrast_gain": -1.004770227609022,
+        "brightness_reduction": 73.22175379426642,
+        "saturation_gain": 32.689151208544125,
+        "glare_area_reduced": 1.0,
+        "ssim": 0.9862208338785772,
+        "psnr": 25.745643010184548
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0061.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 64.66192179510827,
+      "brightness": 253.4044406970208,
+      "saturation": 3.3355817875210794
+    },
+    "enhanced": {
+      "contrast": 63.65715156749925,
+      "brightness": 180.18268690275437,
+      "saturation": 36.024732996065204
+    },
+    "improvements": {
+      "contrast_gain": -1.004770227609022,
+      "brightness_reduction": 73.22175379426642,
+      "saturation_gain": 32.689151208544125,
+      "glare_area_reduced": 1.0,
+      "ssim": 0.9862208338785772,
+      "psnr": 25.745643010184548
+    }
+  }
+}

@@ -1,0 +1,27 @@
+============================================================
+IMAGE ENHANCEMENT METRICS REPORT
+============================================================
+
+ORIGINAL IMAGE METRICS
+contrast       : 61.2263
+brightness     : 242.9140
+saturation     : 14.8253
+
+ENHANCED IMAGE METRICS
+contrast       : 38.0753
+brightness     : 153.5119
+saturation     : 8.6405
+
+IMPROVEMENTS
+contrast_gain       : -23.1510
+brightness_reduction: 89.4022
+saturation_gain     : -6.1848
+glare_area_reduced  : 1.0000
+ssim                : 0.9464
+psnr                : 17.1310
+  contrast → standard deviation of brightness (higher = clearer)
+  brightness → avg pixel brightness in glare area
+  saturation → avg color richness in glare area
+  glare_area_reduced → % of glare pixels removed
+  SSIM → closer to 1 means more structural quality
+  PSNR → higher dB means less noise, better quality

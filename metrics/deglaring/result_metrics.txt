@@ -1,0 +1,11 @@
+Image Enhancement Quality Metrics
+========================================
+contrast_original: 53.1399
+contrast_enhanced: 48.7467
+contrast_improvement: -4.3932
+contrast_improvement_pct: -8.2673
+brightness_original: 64.1463
+brightness_enhanced: 61.2505
+ssim: 0.9730
+psnr: 23.6847
+quality_grade: FAIR

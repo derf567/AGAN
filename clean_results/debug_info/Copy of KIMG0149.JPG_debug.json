@@ -1,0 +1,67 @@
+{
+  "index": 90,
+  "filename": "Copy of KIMG0149.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0149.JPG",
+  "timestamp": "2025-10-27T14:27:13.877511",
+  "detection": {
+    "rain_score": 0.18,
+    "glare_score": 0.008035714285714285,
+    "needs_enhance": false,
+    "glare_pixel_count": "3294",
+    "glare_percentage": 0.8035714285714285,
+    "contrast": 61.2682615195814,
+    "brightness": 114.86590066354411,
+    "sharpness": 241.49253753971655
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.8669395446777344,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 61.2682615195814,
+        "brightness": 254.72768670309654,
+        "saturation": 3.9863387978142075
+      },
+      "enhanced": {
+        "contrast": 59.97546335300639,
+        "brightness": 173.6177899210686,
+        "saturation": 11.909532483302975
+      },
+      "improvements": {
+        "contrast_gain": -1.292798166575011,
+        "brightness_reduction": 81.10989678202793,
+        "saturation_gain": 7.9231936854887675,
+        "glare_area_reduced": 1.0,
+        "ssim": 0.9841710022752888,
+        "psnr": 25.702576239180786
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0149.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 61.2682615195814,
+      "brightness": 254.72768670309654,
+      "saturation": 3.9863387978142075
+    },
+    "enhanced": {
+      "contrast": 59.97546335300639,
+      "brightness": 173.6177899210686,
+      "saturation": 11.909532483302975
+    },
+    "improvements": {
+      "contrast_gain": -1.292798166575011,
+      "brightness_reduction": 81.10989678202793,
+      "saturation_gain": 7.9231936854887675,
+      "glare_area_reduced": 1.0,
+      "ssim": 0.9841710022752888,
+      "psnr": 25.702576239180786
+    }
+  }
+}

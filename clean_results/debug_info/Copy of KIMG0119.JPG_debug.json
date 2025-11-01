@@ -1,0 +1,67 @@
+{
+  "index": 60,
+  "filename": "Copy of KIMG0119.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0119.JPG",
+  "timestamp": "2025-10-27T14:26:57.306554",
+  "detection": {
+    "rain_score": 0.18,
+    "glare_score": 0.013788056206088993,
+    "needs_enhance": true,
+    "glare_pixel_count": "5652",
+    "glare_percentage": 1.3788056206088992,
+    "contrast": 47.14770274600275,
+    "brightness": 128.83303083528494,
+    "sharpness": 315.0363960123765
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.7155578136444092,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 47.14770274600275,
+        "brightness": 254.26450813871196,
+        "saturation": 3.4249823071479124
+      },
+      "enhanced": {
+        "contrast": 45.61166313477027,
+        "brightness": 183.1530431705591,
+        "saturation": 14.010084925690022
+      },
+      "improvements": {
+        "contrast_gain": -1.5360396112324821,
+        "brightness_reduction": 71.11146496815286,
+        "saturation_gain": 10.585102618542109,
+        "glare_area_reduced": 0.9996461429582448,
+        "ssim": 0.976380356849712,
+        "psnr": 23.29375801338066
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0119.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 47.14770274600275,
+      "brightness": 254.26450813871196,
+      "saturation": 3.4249823071479124
+    },
+    "enhanced": {
+      "contrast": 45.61166313477027,
+      "brightness": 183.1530431705591,
+      "saturation": 14.010084925690022
+    },
+    "improvements": {
+      "contrast_gain": -1.5360396112324821,
+      "brightness_reduction": 71.11146496815286,
+      "saturation_gain": 10.585102618542109,
+      "glare_area_reduced": 0.9996461429582448,
+      "ssim": 0.976380356849712,
+      "psnr": 23.29375801338066
+    }
+  }
+}

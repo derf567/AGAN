@@ -1,0 +1,67 @@
+{
+  "index": 26,
+  "filename": "Copy of KIMG0079.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0079.JPG",
+  "timestamp": "2025-10-27T14:26:36.205500",
+  "detection": {
+    "rain_score": 0.20650903062083523,
+    "glare_score": 0.007681986729117876,
+    "needs_enhance": false,
+    "glare_pixel_count": "3149",
+    "glare_percentage": 0.7681986729117877,
+    "contrast": 75.78992689574925,
+    "brightness": 93.78879049570648,
+    "sharpness": 1278.0435372732748
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.7365329265594482,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 75.78992689574925,
+        "brightness": 254.48237535725627,
+        "saturation": 5.54811051127342
+      },
+      "enhanced": {
+        "contrast": 72.29141381388266,
+        "brightness": 137.5604953953636,
+        "saturation": 38.83836138456653
+      },
+      "improvements": {
+        "contrast_gain": -3.498513081866591,
+        "brightness_reduction": 116.92187996189267,
+        "saturation_gain": 33.29025087329311,
+        "glare_area_reduced": 1.0,
+        "ssim": 0.97886899047334,
+        "psnr": 21.62642410822166
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0079.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 75.78992689574925,
+      "brightness": 254.48237535725627,
+      "saturation": 5.54811051127342
+    },
+    "enhanced": {
+      "contrast": 72.29141381388266,
+      "brightness": 137.5604953953636,
+      "saturation": 38.83836138456653
+    },
+    "improvements": {
+      "contrast_gain": -3.498513081866591,
+      "brightness_reduction": 116.92187996189267,
+      "saturation_gain": 33.29025087329311,
+      "glare_area_reduced": 1.0,
+      "ssim": 0.97886899047334,
+      "psnr": 21.62642410822166
+    }
+  }
+}

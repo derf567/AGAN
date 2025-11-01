@@ -1,0 +1,36 @@
+{
+  "index": 38,
+  "filename": "Copy of KIMG0087.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0087.JPG",
+  "timestamp": "2025-10-27T14:26:42.690067",
+  "detection": {
+    "rain_score": 0.18,
+    "glare_score": 0.0007074551131928181,
+    "needs_enhance": false,
+    "glare_pixel_count": "290",
+    "glare_percentage": 0.07074551131928182,
+    "contrast": 86.89893198259406,
+    "brightness": 95.64401834504294,
+    "sharpness": 378.30049411065727
+  },
+  "expected_mode": "NONE",
+  "processing_time": 0.06566047668457031,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "NONE",
+    "metrics": {
+      "rain_score": 0.18,
+      "glare_score": 0.0007074551131928181,
+      "needed_enhancement": false
+    }
+  },
+  "status": "success",
+  "actual_mode": "NONE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0087.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "rain_score": 0.18,
+    "glare_score": 0.0007074551131928181,
+    "needed_enhancement": false
+  }
+}

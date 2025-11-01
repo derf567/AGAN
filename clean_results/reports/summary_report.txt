@@ -1,0 +1,33 @@
+================================================================================
+CLEAN FOLDER BATCH TEST SUMMARY
+THESIS PROJECT - DASHCAM ENHANCEMENT SYSTEM
+================================================================================
+
+Test Date: 2025-10-27 14:27:20
+Input Folder: tools\Clean
+Output Folder: clean_results
+
+PROCESSING STATISTICS
+--------------------------------------------------------------------------------
+Total Images Tested:     100
+Successfully Processed:  100
+Failed:                  0
+
+PROCESSING MODE DISTRIBUTION
+--------------------------------------------------------------------------------
+NONE Mode (Correct):     70 images (70.0%)
+DERAIN (Unnecessary):    0 images (0.0%)
+DEGLARE (Unnecessary):   30 images (30.0%)
+ENHANCE (Maybe OK):      0 images (0.0%)
+
+EFFICIENCY ANALYSIS
+--------------------------------------------------------------------------------
+Efficiency Rate: 70.0%
+  (Percentage of clean images correctly identified as not needing processing)
+
+⚠ CRITICAL METRIC ⚠
+--------------------------------------------------------------------------------
+Unnecessary Processing: 30 images
+
+⚠ WARNING: 30 clean images were unnecessarily processed!
+This wastes computational resources on images that don't need enhancement.

@@ -1,0 +1,39 @@
+{
+  "index": 128,
+  "filename": "838_rain.png",
+  "input_path": "D:\\School UIC\\GAN\\attentive-gan-derainnet\\tools\\Deraining\\838_rain.png",
+  "timestamp": "2025-10-27T11:53:22.090605",
+  "detection": {
+    "rain_score": 0.1989481570377951,
+    "glare_score": 0.002766203703703704,
+    "needs_enhance": false,
+    "glare_pixel_count": "956",
+    "glare_percentage": 0.2766203703703704
+  },
+  "expected_mode": "NONE",
+  "processing_time": 0.0850214958190918,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "NONE",
+    "metrics": {
+      "rain_score": 0.1989481570377951,
+      "glare_score": 0.002766203703703704,
+      "needed_enhancement": false
+    }
+  },
+  "status": "success",
+  "actual_mode": "NONE",
+  "output_path": "derain_results\\enhanced_images\\enhanced_838_rain.png",
+  "mode_correct": true,
+  "metrics": {
+    "rain_score": 0.1989481570377951,
+    "glare_score": 0.002766203703703704,
+    "needed_enhancement": false
+  },
+  "derain_outputs": [
+    "derain_ret.png",
+    "src_img.png",
+    "comparison.png",
+    "derain_results.txt"
+  ]
+}

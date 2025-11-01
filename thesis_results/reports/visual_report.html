@@ -1,0 +1,2581 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batch Test Results - Intelligent Switching Validation</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                   color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .stats { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0; }
+        .stat-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
+        .stat-label { font-weight: bold; color: #7f8c8d; font-size: 14px; margin-bottom: 10px; }
+        .stat-value { font-size: 32px; font-weight: bold; color: #2c3e50; }
+        .stat-value.success { color: #27ae60; }
+        .stat-value.failed { color: #e74c3c; }
+        .stat-value.warning { color: #f39c12; }
+        .critical-alert { background: #ffe6e6; border-left: 5px solid #e74c3c; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .success-alert { background: #e8f8f5; border-left: 5px solid #27ae60; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; background: white; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #3498db; color: white; font-weight: bold; position: sticky; top: 0; }
+        tr:hover { background-color: #f5f5f5; }
+        .success { color: #27ae60; font-weight: bold; }
+        .failed { color: #e74c3c; font-weight: bold; }
+        .incorrect { background-color: #ffe6e6; }
+        .critical { background-color: #ffcccc; font-weight: bold; }
+        .footer { text-align: center; margin-top: 40px; padding: 20px; color: #7f8c8d; }
+        .progress-bar { width: 100%; height: 30px; background: #ecf0f1; border-radius: 15px; overflow: hidden; margin: 10px 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #27ae60, #2ecc71); transition: width 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="margin:0; border:none; color:white;">🎓 Thesis Project: Intelligent Switching Validation</h1>
+        <p style="margin:10px 0 0 0; opacity:0.9;">Dashcam Enhancement System - Glare Folder Batch Test</p>
+        <p style="margin:5px 0 0 0; opacity:0.8; font-size:14px;">Generated: 2025-10-27 04:17:29</p>
+    </div>
+    
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-label">Total Images</div>
+            <div class="stat-value">200</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Successfully Processed</div>
+            <div class="stat-value success">200</div>
+            <div style="font-size:12px; color:#7f8c8d; margin-top:5px;">
+                100.0%
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">DEGLARE Mode</div>
+            <div class="stat-value" style="color:#3498db;">186</div>
+            <div style="font-size:12px; color:#7f8c8d; margin-top:5px;">
+                93.0%
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">DERAIN Mode</div>
+            <div class="stat-value warning">0</div>
+            <div style="font-size:12px; color:#7f8c8d; margin-top:5px;">
+                0.0%
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Mode Accuracy</div>
+            <div class="stat-value success">100.0%</div>
+            <div style="font-size:12px; color:#7f8c8d; margin-top:5px;">
+                200 / 200 correct
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Critical Issues</div>
+            <div class="stat-value success">
+                0
+            </div>
+            <div style="font-size:12px; color:#7f8c8d; margin-top:5px;">
+                Glare → Derain errors
+            </div>
+        </div>
+    </div>
+    
+    <div class="success-alert"><h3 style="margin-top:0; color:#27ae60;">✓ EXCELLENT PERFORMANCE</h3><p><strong>All glare images correctly processed with DEGLARE mode!</strong></p><p>The intelligent switching system is working perfectly. All images were routed to the appropriate processing mode.</p></div>
+    
+    <div class="stats">
+        <h2>Processing Accuracy Breakdown</h2>
+        <div style="margin: 20px 0;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                <span>Correct Mode Selection</span>
+                <span><strong>100.0%</strong></span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;">
+            <div>
+                <h3>Mode Distribution</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0; border-bottom: 1px solid #ecf0f1;">
+                        <span style="color: #3498db;">●</span> <strong>DEGLARE:</strong> 186 images
+                    </li>
+                    <li style="padding: 8px 0; border-bottom: 1px solid #ecf0f1;">
+                        <span style="color: #f39c12;">●</span> <strong>DERAIN:</strong> 0 images
+                    </li>
+                    <li style="padding: 8px 0; border-bottom: 1px solid #ecf0f1;">
+                        <span style="color: #9b59b6;">●</span> <strong>ENHANCE:</strong> 14 images
+                    </li>
+                    <li style="padding: 8px 0;">
+                        <span style="color: #95a5a6;">●</span> <strong>NONE:</strong> 0 images
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>Status Summary</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0; border-bottom: 1px solid #ecf0f1;">
+                        <span style="color: #27ae60;">✓</span> <strong>Successful:</strong> 200 images
+                    </li>
+                    <li style="padding: 8px 0; border-bottom: 1px solid #ecf0f1;">
+                        <span style="color: #e74c3c;">✗</span> <strong>Failed:</strong> 0 images
+                    </li>
+                    <li style="padding: 8px 0;">
+                        <span style="color: #e74c3c;">⚠</span> <strong>Incorrect Mode:</strong> 0 images
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="stats">
+        <h2>Detailed Results Table</h2>
+        <p style="color: #7f8c8d; font-size: 14px;">
+            Red highlighted rows indicate images that ran incorrect processing mode
+        </p>
+        <div style="overflow-x: auto;">
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Filename</th>
+                    <th>Status</th>
+                    <th>Expected Mode</th>
+                    <th>Actual Mode</th>
+                    <th>Match</th>
+                    <th>Glare Score</th>
+                    <th>Rain Score</th>
+                    <th>Time (s)</th>
+                </tr>
+
+                <tr class="">
+                    <td>1</td>
+                    <td style="font-family: monospace; font-size: 12px;">glare.png</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0007</td>
+                    <td>0.1800</td>
+                    <td>0.31</td>
+                </tr>
+
+                <tr class="">
+                    <td>2</td>
+                    <td style="font-family: monospace; font-size: 12px;">glare.png</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0007</td>
+                    <td>0.1800</td>
+                    <td>0.27</td>
+                </tr>
+
+                <tr class="">
+                    <td>3</td>
+                    <td style="font-family: monospace; font-size: 12px;">glare_fliph.png</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0007</td>
+                    <td>0.1800</td>
+                    <td>0.28</td>
+                </tr>
+
+                <tr class="">
+                    <td>4</td>
+                    <td style="font-family: monospace; font-size: 12px;">glare_fliph.png</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0007</td>
+                    <td>0.1800</td>
+                    <td>0.28</td>
+                </tr>
+
+                <tr class="">
+                    <td>5</td>
+                    <td style="font-family: monospace; font-size: 12px;">input.png</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0330</td>
+                    <td>0.1800</td>
+                    <td>4.63</td>
+                </tr>
+
+                <tr class="">
+                    <td>6</td>
+                    <td style="font-family: monospace; font-size: 12px;">input.png</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0330</td>
+                    <td>0.1800</td>
+                    <td>4.66</td>
+                </tr>
+
+                <tr class="">
+                    <td>7</td>
+                    <td style="font-family: monospace; font-size: 12px;">input_fliph.png</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0330</td>
+                    <td>0.1800</td>
+                    <td>5.06</td>
+                </tr>
+
+                <tr class="">
+                    <td>8</td>
+                    <td style="font-family: monospace; font-size: 12px;">input_fliph.png</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0330</td>
+                    <td>0.1800</td>
+                    <td>5.15</td>
+                </tr>
+
+                <tr class="">
+                    <td>9</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0160.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0357</td>
+                    <td>0.0487</td>
+                    <td>0.68</td>
+                </tr>
+
+                <tr class="">
+                    <td>10</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0160.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0357</td>
+                    <td>0.0487</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>11</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0160_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0348</td>
+                    <td>0.0489</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>12</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0160_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0348</td>
+                    <td>0.0489</td>
+                    <td>0.68</td>
+                </tr>
+
+                <tr class="">
+                    <td>13</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0161.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0267</td>
+                    <td>0.1800</td>
+                    <td>0.75</td>
+                </tr>
+
+                <tr class="">
+                    <td>14</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0161.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0267</td>
+                    <td>0.1800</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>15</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0161_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0259</td>
+                    <td>0.1800</td>
+                    <td>0.66</td>
+                </tr>
+
+                <tr class="">
+                    <td>16</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0161_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0259</td>
+                    <td>0.1800</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>17</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0162.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0306</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>18</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0162.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0306</td>
+                    <td>0.1800</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>19</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0162_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0295</td>
+                    <td>0.1800</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>20</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0162_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0295</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>21</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0163.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0305</td>
+                    <td>0.1800</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>22</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0163.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0305</td>
+                    <td>0.1800</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>23</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0163_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0298</td>
+                    <td>0.1800</td>
+                    <td>0.68</td>
+                </tr>
+
+                <tr class="">
+                    <td>24</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0163_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0298</td>
+                    <td>0.1800</td>
+                    <td>0.68</td>
+                </tr>
+
+                <tr class="">
+                    <td>25</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0164.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0396</td>
+                    <td>0.0504</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>26</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0164.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0396</td>
+                    <td>0.0504</td>
+                    <td>0.67</td>
+                </tr>
+
+                <tr class="">
+                    <td>27</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0164_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0390</td>
+                    <td>0.0501</td>
+                    <td>0.66</td>
+                </tr>
+
+                <tr class="">
+                    <td>28</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0164_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0390</td>
+                    <td>0.0501</td>
+                    <td>0.83</td>
+                </tr>
+
+                <tr class="">
+                    <td>29</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0165.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0380</td>
+                    <td>0.0602</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>30</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0165.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0380</td>
+                    <td>0.0602</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>31</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0165_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0370</td>
+                    <td>0.0590</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>32</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0165_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0370</td>
+                    <td>0.0590</td>
+                    <td>0.76</td>
+                </tr>
+
+                <tr class="">
+                    <td>33</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0166.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0338</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>34</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0166.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0338</td>
+                    <td>0.1800</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>35</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0166_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0321</td>
+                    <td>0.0622</td>
+                    <td>0.68</td>
+                </tr>
+
+                <tr class="">
+                    <td>36</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0166_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0321</td>
+                    <td>0.0622</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>37</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0167.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0306</td>
+                    <td>0.0582</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>38</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0167.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0306</td>
+                    <td>0.0582</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>39</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0167_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0292</td>
+                    <td>0.0576</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>40</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0167_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0292</td>
+                    <td>0.0576</td>
+                    <td>0.68</td>
+                </tr>
+
+                <tr class="">
+                    <td>41</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0168.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0234</td>
+                    <td>0.0492</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>42</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0168.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0234</td>
+                    <td>0.0492</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>43</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0168_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0224</td>
+                    <td>0.0492</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>44</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0168_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0224</td>
+                    <td>0.0492</td>
+                    <td>0.68</td>
+                </tr>
+
+                <tr class="">
+                    <td>45</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0169.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0148</td>
+                    <td>0.0500</td>
+                    <td>0.75</td>
+                </tr>
+
+                <tr class="">
+                    <td>46</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0169.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0148</td>
+                    <td>0.0500</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>47</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0169_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0137</td>
+                    <td>0.0493</td>
+                    <td>0.67</td>
+                </tr>
+
+                <tr class="">
+                    <td>48</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0169_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0137</td>
+                    <td>0.0493</td>
+                    <td>0.67</td>
+                </tr>
+
+                <tr class="">
+                    <td>49</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0170.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0286</td>
+                    <td>0.1800</td>
+                    <td>0.75</td>
+                </tr>
+
+                <tr class="">
+                    <td>50</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0170.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0286</td>
+                    <td>0.1800</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>51</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0170_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0274</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>52</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0170_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0274</td>
+                    <td>0.1800</td>
+                    <td>0.76</td>
+                </tr>
+
+                <tr class="">
+                    <td>53</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0171.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0366</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>54</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0171.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0366</td>
+                    <td>0.1800</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>55</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0171_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0355</td>
+                    <td>0.1800</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>56</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0171_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0355</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>57</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0172.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0380</td>
+                    <td>0.0570</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>58</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0172.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0380</td>
+                    <td>0.0570</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>59</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0172_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0361</td>
+                    <td>0.0567</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>60</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0172_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0361</td>
+                    <td>0.0567</td>
+                    <td>0.85</td>
+                </tr>
+
+                <tr class="">
+                    <td>61</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0173.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0276</td>
+                    <td>0.0705</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>62</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0173.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0276</td>
+                    <td>0.0705</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>63</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0173_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0260</td>
+                    <td>0.0706</td>
+                    <td>0.93</td>
+                </tr>
+
+                <tr class="">
+                    <td>64</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0173_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0260</td>
+                    <td>0.0706</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>65</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0174.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0470</td>
+                    <td>0.0763</td>
+                    <td>0.75</td>
+                </tr>
+
+                <tr class="">
+                    <td>66</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0174.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0470</td>
+                    <td>0.0763</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>67</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0174_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0456</td>
+                    <td>0.0759</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>68</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0174_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0456</td>
+                    <td>0.0759</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>69</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0175.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0508</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>70</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0175.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0508</td>
+                    <td>0.1800</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>71</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0175_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0494</td>
+                    <td>0.1800</td>
+                    <td>0.74</td>
+                </tr>
+
+                <tr class="">
+                    <td>72</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0175_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0494</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>73</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0176.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0481</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>74</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0176.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0481</td>
+                    <td>0.1800</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>75</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0176_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0467</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>76</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0176_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0467</td>
+                    <td>0.1800</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>77</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0177.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0440</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>78</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0177.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0440</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>79</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0177_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0426</td>
+                    <td>0.0802</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>80</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0177_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0426</td>
+                    <td>0.0802</td>
+                    <td>0.77</td>
+                </tr>
+
+                <tr class="">
+                    <td>81</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0178.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0318</td>
+                    <td>0.1800</td>
+                    <td>0.76</td>
+                </tr>
+
+                <tr class="">
+                    <td>82</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0178.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0318</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>83</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0178_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0309</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>84</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0178_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0309</td>
+                    <td>0.1800</td>
+                    <td>0.88</td>
+                </tr>
+
+                <tr class="">
+                    <td>85</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0179.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0384</td>
+                    <td>0.0889</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>86</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0179.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0384</td>
+                    <td>0.0889</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>87</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0179_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0372</td>
+                    <td>0.0884</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>88</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0179_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0372</td>
+                    <td>0.0884</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>89</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0180.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0398</td>
+                    <td>0.0792</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>90</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0180.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0398</td>
+                    <td>0.0792</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>91</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0180_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0381</td>
+                    <td>0.0772</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>92</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0180_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0381</td>
+                    <td>0.0772</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>93</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0181.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0461</td>
+                    <td>0.0763</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>94</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0181.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0461</td>
+                    <td>0.0763</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>95</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0181_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0448</td>
+                    <td>0.0766</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>96</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0181_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0448</td>
+                    <td>0.0766</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>97</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0182.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0447</td>
+                    <td>0.0767</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>98</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0182.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0447</td>
+                    <td>0.0767</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>99</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0182_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0440</td>
+                    <td>0.0760</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>100</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0182_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0440</td>
+                    <td>0.0760</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>101</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0183.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0591</td>
+                    <td>0.0732</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>102</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0183.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0591</td>
+                    <td>0.0732</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>103</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0183_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0578</td>
+                    <td>0.0726</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>104</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0183_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0578</td>
+                    <td>0.0726</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>105</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0184.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0503</td>
+                    <td>0.1800</td>
+                    <td>0.92</td>
+                </tr>
+
+                <tr class="">
+                    <td>106</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0184.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0503</td>
+                    <td>0.1800</td>
+                    <td>0.78</td>
+                </tr>
+
+                <tr class="">
+                    <td>107</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0184_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0490</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>108</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0184_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0490</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>109</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0185.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0389</td>
+                    <td>0.0799</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>110</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0185.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0389</td>
+                    <td>0.0799</td>
+                    <td>0.74</td>
+                </tr>
+
+                <tr class="">
+                    <td>111</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0185_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0378</td>
+                    <td>0.0800</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>112</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0185_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0378</td>
+                    <td>0.0800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>113</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0186.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0416</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>114</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0186.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0416</td>
+                    <td>0.1800</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>115</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0186_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0400</td>
+                    <td>0.0828</td>
+                    <td>0.74</td>
+                </tr>
+
+                <tr class="">
+                    <td>116</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0186_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0400</td>
+                    <td>0.0828</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>117</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0187.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0390</td>
+                    <td>0.1800</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>118</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0187.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0390</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>119</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0187_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0375</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>120</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0187_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0375</td>
+                    <td>0.1800</td>
+                    <td>0.75</td>
+                </tr>
+
+                <tr class="">
+                    <td>121</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0188.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0396</td>
+                    <td>0.0670</td>
+                    <td>0.74</td>
+                </tr>
+
+                <tr class="">
+                    <td>122</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0188.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0396</td>
+                    <td>0.0670</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>123</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0188_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0384</td>
+                    <td>0.0670</td>
+                    <td>0.78</td>
+                </tr>
+
+                <tr class="">
+                    <td>124</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0188_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0384</td>
+                    <td>0.0670</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>125</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0189.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0025</td>
+                    <td>0.0131</td>
+                    <td>0.55</td>
+                </tr>
+
+                <tr class="">
+                    <td>126</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0189.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0025</td>
+                    <td>0.0131</td>
+                    <td>0.39</td>
+                </tr>
+
+                <tr class="">
+                    <td>127</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0189_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0023</td>
+                    <td>0.0131</td>
+                    <td>0.61</td>
+                </tr>
+
+                <tr class="">
+                    <td>128</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0189_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0023</td>
+                    <td>0.0131</td>
+                    <td>0.38</td>
+                </tr>
+
+                <tr class="">
+                    <td>129</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0190.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0044</td>
+                    <td>0.0167</td>
+                    <td>0.39</td>
+                </tr>
+
+                <tr class="">
+                    <td>130</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0190.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0044</td>
+                    <td>0.0167</td>
+                    <td>0.40</td>
+                </tr>
+
+                <tr class="">
+                    <td>131</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0190_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0035</td>
+                    <td>0.0169</td>
+                    <td>0.39</td>
+                </tr>
+
+                <tr class="">
+                    <td>132</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0190_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0035</td>
+                    <td>0.0169</td>
+                    <td>0.40</td>
+                </tr>
+
+                <tr class="">
+                    <td>133</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0191.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0496</td>
+                    <td>0.1800</td>
+                    <td>0.79</td>
+                </tr>
+
+                <tr class="">
+                    <td>134</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0191.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0496</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>135</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0191_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0484</td>
+                    <td>0.1800</td>
+                    <td>0.77</td>
+                </tr>
+
+                <tr class="">
+                    <td>136</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0191_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0484</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>137</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0192.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0162</td>
+                    <td>0.1800</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>138</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0192.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0162</td>
+                    <td>0.1800</td>
+                    <td>0.68</td>
+                </tr>
+
+                <tr class="">
+                    <td>139</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0192_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0158</td>
+                    <td>0.1800</td>
+                    <td>0.68</td>
+                </tr>
+
+                <tr class="">
+                    <td>140</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0192_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0158</td>
+                    <td>0.1800</td>
+                    <td>0.71</td>
+                </tr>
+
+                <tr class="">
+                    <td>141</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0193.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0195</td>
+                    <td>0.0326</td>
+                    <td>0.62</td>
+                </tr>
+
+                <tr class="">
+                    <td>142</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0193.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0195</td>
+                    <td>0.0326</td>
+                    <td>0.61</td>
+                </tr>
+
+                <tr class="">
+                    <td>143</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0193_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0190</td>
+                    <td>0.0328</td>
+                    <td>0.61</td>
+                </tr>
+
+                <tr class="">
+                    <td>144</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0193_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0190</td>
+                    <td>0.0328</td>
+                    <td>0.61</td>
+                </tr>
+
+                <tr class="">
+                    <td>145</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0194.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0157</td>
+                    <td>0.0305</td>
+                    <td>0.58</td>
+                </tr>
+
+                <tr class="">
+                    <td>146</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0194.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0157</td>
+                    <td>0.0305</td>
+                    <td>0.61</td>
+                </tr>
+
+                <tr class="">
+                    <td>147</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0194_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0154</td>
+                    <td>0.0306</td>
+                    <td>0.58</td>
+                </tr>
+
+                <tr class="">
+                    <td>148</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0194_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0154</td>
+                    <td>0.0306</td>
+                    <td>0.59</td>
+                </tr>
+
+                <tr class="">
+                    <td>149</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0195.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0180</td>
+                    <td>0.0303</td>
+                    <td>0.59</td>
+                </tr>
+
+                <tr class="">
+                    <td>150</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0195.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0180</td>
+                    <td>0.0303</td>
+                    <td>0.60</td>
+                </tr>
+
+                <tr class="">
+                    <td>151</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0195_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0180</td>
+                    <td>0.1800</td>
+                    <td>0.59</td>
+                </tr>
+
+                <tr class="">
+                    <td>152</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0195_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0180</td>
+                    <td>0.1800</td>
+                    <td>0.62</td>
+                </tr>
+
+                <tr class="">
+                    <td>153</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0196.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0118</td>
+                    <td>0.0236</td>
+                    <td>0.70</td>
+                </tr>
+
+                <tr class="">
+                    <td>154</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0196.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0118</td>
+                    <td>0.0236</td>
+                    <td>0.41</td>
+                </tr>
+
+                <tr class="">
+                    <td>155</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0196_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0118</td>
+                    <td>0.0232</td>
+                    <td>0.56</td>
+                </tr>
+
+                <tr class="">
+                    <td>156</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0196_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0118</td>
+                    <td>0.0232</td>
+                    <td>0.56</td>
+                </tr>
+
+                <tr class="">
+                    <td>157</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0197.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0118</td>
+                    <td>0.0230</td>
+                    <td>0.58</td>
+                </tr>
+
+                <tr class="">
+                    <td>158</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0197.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0118</td>
+                    <td>0.0230</td>
+                    <td>0.60</td>
+                </tr>
+
+                <tr class="">
+                    <td>159</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0197_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0114</td>
+                    <td>0.0230</td>
+                    <td>0.57</td>
+                </tr>
+
+                <tr class="">
+                    <td>160</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0197_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0114</td>
+                    <td>0.0230</td>
+                    <td>0.56</td>
+                </tr>
+
+                <tr class="">
+                    <td>161</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0198.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0157</td>
+                    <td>0.0382</td>
+                    <td>0.46</td>
+                </tr>
+
+                <tr class="">
+                    <td>162</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0198.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0157</td>
+                    <td>0.0382</td>
+                    <td>0.46</td>
+                </tr>
+
+                <tr class="">
+                    <td>163</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0198_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0153</td>
+                    <td>0.0386</td>
+                    <td>0.46</td>
+                </tr>
+
+                <tr class="">
+                    <td>164</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0198_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0153</td>
+                    <td>0.0386</td>
+                    <td>0.45</td>
+                </tr>
+
+                <tr class="">
+                    <td>165</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0199.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0142</td>
+                    <td>0.1800</td>
+                    <td>0.63</td>
+                </tr>
+
+                <tr class="">
+                    <td>166</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0199.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0142</td>
+                    <td>0.1800</td>
+                    <td>0.64</td>
+                </tr>
+
+                <tr class="">
+                    <td>167</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0199_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0134</td>
+                    <td>0.1800</td>
+                    <td>0.64</td>
+                </tr>
+
+                <tr class="">
+                    <td>168</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0199_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0134</td>
+                    <td>0.1800</td>
+                    <td>0.64</td>
+                </tr>
+
+                <tr class="">
+                    <td>169</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0200.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0174</td>
+                    <td>0.1800</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>170</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0200.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0174</td>
+                    <td>0.1800</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>171</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0200_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0163</td>
+                    <td>0.1800</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>172</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0200_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0163</td>
+                    <td>0.1800</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>173</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0201.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0195</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>174</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0201.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0195</td>
+                    <td>0.1800</td>
+                    <td>0.73</td>
+                </tr>
+
+                <tr class="">
+                    <td>175</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0201_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0186</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>176</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0201_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0186</td>
+                    <td>0.1800</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>177</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0202.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0182</td>
+                    <td>0.0650</td>
+                    <td>0.94</td>
+                </tr>
+
+                <tr class="">
+                    <td>178</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0202.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0182</td>
+                    <td>0.0650</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>179</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0202_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0170</td>
+                    <td>0.0650</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>180</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0202_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0170</td>
+                    <td>0.0650</td>
+                    <td>0.69</td>
+                </tr>
+
+                <tr class="">
+                    <td>181</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0203.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0217</td>
+                    <td>0.0553</td>
+                    <td>0.74</td>
+                </tr>
+
+                <tr class="">
+                    <td>182</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0203.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0217</td>
+                    <td>0.0553</td>
+                    <td>0.68</td>
+                </tr>
+
+                <tr class="">
+                    <td>183</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0203_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0209</td>
+                    <td>0.0552</td>
+                    <td>0.72</td>
+                </tr>
+
+                <tr class="">
+                    <td>184</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0203_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0209</td>
+                    <td>0.0552</td>
+                    <td>0.76</td>
+                </tr>
+
+                <tr class="">
+                    <td>185</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0204.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0184</td>
+                    <td>0.0319</td>
+                    <td>0.62</td>
+                </tr>
+
+                <tr class="">
+                    <td>186</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0204.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0184</td>
+                    <td>0.0319</td>
+                    <td>0.62</td>
+                </tr>
+
+                <tr class="">
+                    <td>187</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0204_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0180</td>
+                    <td>0.0322</td>
+                    <td>0.65</td>
+                </tr>
+
+                <tr class="">
+                    <td>188</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0204_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0180</td>
+                    <td>0.0322</td>
+                    <td>0.62</td>
+                </tr>
+
+                <tr class="">
+                    <td>189</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0205.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0105</td>
+                    <td>0.0330</td>
+                    <td>0.61</td>
+                </tr>
+
+                <tr class="">
+                    <td>190</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0205.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0105</td>
+                    <td>0.0330</td>
+                    <td>0.61</td>
+                </tr>
+
+                <tr class="">
+                    <td>191</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0205_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0099</td>
+                    <td>0.0334</td>
+                    <td>0.61</td>
+                </tr>
+
+                <tr class="">
+                    <td>192</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0205_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td><strong>ENHANCE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0099</td>
+                    <td>0.0334</td>
+                    <td>0.61</td>
+                </tr>
+
+                <tr class="">
+                    <td>193</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0206.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0138</td>
+                    <td>0.0347</td>
+                    <td>0.64</td>
+                </tr>
+
+                <tr class="">
+                    <td>194</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0206.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0138</td>
+                    <td>0.0347</td>
+                    <td>0.61</td>
+                </tr>
+
+                <tr class="">
+                    <td>195</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0206_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0128</td>
+                    <td>0.0350</td>
+                    <td>0.62</td>
+                </tr>
+
+                <tr class="">
+                    <td>196</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0206_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0128</td>
+                    <td>0.0350</td>
+                    <td>0.63</td>
+                </tr>
+
+                <tr class="">
+                    <td>197</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0207.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0125</td>
+                    <td>0.0303</td>
+                    <td>0.47</td>
+                </tr>
+
+                <tr class="">
+                    <td>198</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0207.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0125</td>
+                    <td>0.0303</td>
+                    <td>0.46</td>
+                </tr>
+
+                <tr class="">
+                    <td>199</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0207_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0119</td>
+                    <td>0.0306</td>
+                    <td>0.46</td>
+                </tr>
+
+                <tr class="">
+                    <td>200</td>
+                    <td style="font-family: monospace; font-size: 12px;">KIMG0207_fliph.JPG</td>
+                    <td class="success">success</td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td><strong>DEGLARE</strong></td>
+                    <td style="font-size: 18px;"><span style="color:#27ae60;">✓</span></td>
+                    <td>0.0119</td>
+                    <td>0.0306</td>
+                    <td>0.46</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    
+    <div class="stats">
+        <h2>Configuration Used</h2>
+        <div style="background: #ecf0f1; padding: 15px; border-radius: 5px; font-family: monospace; font-size: 13px;">
+
+            <strong>Config File:</strong> None<br>
+            <strong>Rain Threshold:</strong> 0.25<br>
+            <strong>Glare Threshold:</strong> 0.01<br>
+            <strong>Glare Brightness Threshold:</strong> 220<br>
+            <strong>Glare Saturation Threshold:</strong> 30
+
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p><strong>Thesis Project: Dashcam Enhancement System</strong></p>
+        <p>Intelligent Switching Validation Report</p>
+        <p style="font-size: 12px; margin-top: 10px;">
+            This report validates the intelligent switching mechanism that routes images<br>
+            to appropriate enhancement algorithms (DEGLARE, DERAIN, ENHANCE)
+        </p>
+    </div>
+</body>
+</html>

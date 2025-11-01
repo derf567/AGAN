@@ -1,0 +1,70 @@
+{
+  "index": 240,
+  "filename": "KIMG0217_flipv.JPG",
+  "input_path": "D:\\School UIC\\GAN\\attentive-gan-derainnet\\tools\\Glare\\KIMG0217_flipv.JPG",
+  "timestamp": "2025-10-27T04:07:24.601834",
+  "detection": {
+    "rain_score": 0.0421442553854108,
+    "glare_score": 0.00857728337236534,
+    "needs_enhance": true,
+    "glare_pixel_count": "3516",
+    "glare_percentage": 0.857728337236534
+  },
+  "expected_mode": "ENHANCE",
+  "processing_time": 0.6579654216766357,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "ENHANCE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 33.06823718378657,
+        "brightness": 234.3108646188851,
+        "saturation": 34.4613196814562
+      },
+      "enhanced": {
+        "contrast": 29.650335904495055,
+        "brightness": 153.35295790671216,
+        "saturation": 27.849829351535835
+      },
+      "improvements": {
+        "contrast_gain": -3.4179012792915167,
+        "brightness_reduction": 80.95790671217293,
+        "saturation_gain": -6.611490329920368,
+        "glare_area_reduced": 1.0,
+        "ssim": 0.988889013749621,
+        "psnr": 30.525971649767012
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "ENHANCE",
+  "output_path": "thesis_results\\enhanced_images\\enhanced_KIMG0217_flipv.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 33.06823718378657,
+      "brightness": 234.3108646188851,
+      "saturation": 34.4613196814562
+    },
+    "enhanced": {
+      "contrast": 29.650335904495055,
+      "brightness": 153.35295790671216,
+      "saturation": 27.849829351535835
+    },
+    "improvements": {
+      "contrast_gain": -3.4179012792915167,
+      "brightness_reduction": 80.95790671217293,
+      "saturation_gain": -6.611490329920368,
+      "glare_area_reduced": 1.0,
+      "ssim": 0.988889013749621,
+      "psnr": 30.525971649767012
+    }
+  },
+  "derain_outputs": [
+    "derain_ret.png",
+    "src_img.png",
+    "comparison.png",
+    "derain_results.txt"
+  ]
+}

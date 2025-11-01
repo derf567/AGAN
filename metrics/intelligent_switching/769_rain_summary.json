@@ -1,0 +1,37 @@
+{
+    "final_status": "success",
+    "processing_mode": "DERAIN",
+    "quality_passed": true,
+    "metrics": {
+        "original": {
+            "contrast": 45.180936526827175,
+            "brightness": 253.14732142857142,
+            "saturation": 5.428571428571429
+        },
+        "enhanced": {
+            "contrast": 50.12170613193733,
+            "brightness": 250.48660714285714,
+            "saturation": 3.669642857142857
+        },
+        "improvements": {
+            "contrast_gain": 4.940769605110155,
+            "brightness_reduction": 2.6607142857142776,
+            "saturation_gain": -1.7589285714285716,
+            "glare_area_reduced": 0.0,
+            "ssim": 0.8875254021606034,
+            "psnr": 25.017908094276315
+        }
+    },
+    "quality_metrics": {
+        "contrast_original": 0,
+        "contrast_enhanced": 0,
+        "contrast_improvement": 0,
+        "contrast_improvement_pct": 0,
+        "brightness_original": 0,
+        "brightness_enhanced": 0,
+        "ssim": 0,
+        "psnr": 0,
+        "quality_grade": "ERROR",
+        "error": "Input images must have the same dimensions."
+    }
+}

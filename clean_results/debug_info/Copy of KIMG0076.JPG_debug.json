@@ -1,0 +1,67 @@
+{
+  "index": 22,
+  "filename": "Copy of KIMG0076.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0076.JPG",
+  "timestamp": "2025-10-27T14:26:32.353362",
+  "detection": {
+    "rain_score": 0.20314530110081552,
+    "glare_score": 0.008438231850117096,
+    "needs_enhance": false,
+    "glare_pixel_count": "3459",
+    "glare_percentage": 0.8438231850117096,
+    "contrast": 72.49271902820817,
+    "brightness": 104.4946843286495,
+    "sharpness": 937.5748828513966
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.6653082370758057,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 72.49271902820817,
+        "brightness": 254.37467476149175,
+        "saturation": 3.364845331020526
+      },
+      "enhanced": {
+        "contrast": 69.69323349442229,
+        "brightness": 130.77536860364268,
+        "saturation": 33.464585140213934
+      },
+      "improvements": {
+        "contrast_gain": -2.7994855337858837,
+        "brightness_reduction": 123.59930615784907,
+        "saturation_gain": 30.09973980919341,
+        "glare_area_reduced": 1.0,
+        "ssim": 0.9837745272833968,
+        "psnr": 22.501174005978925
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0076.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 72.49271902820817,
+      "brightness": 254.37467476149175,
+      "saturation": 3.364845331020526
+    },
+    "enhanced": {
+      "contrast": 69.69323349442229,
+      "brightness": 130.77536860364268,
+      "saturation": 33.464585140213934
+    },
+    "improvements": {
+      "contrast_gain": -2.7994855337858837,
+      "brightness_reduction": 123.59930615784907,
+      "saturation_gain": 30.09973980919341,
+      "glare_area_reduced": 1.0,
+      "ssim": 0.9837745272833968,
+      "psnr": 22.501174005978925
+    }
+  }
+}

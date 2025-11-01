@@ -1,0 +1,39 @@
+{
+  "index": 370,
+  "filename": "test_7.png",
+  "input_path": "D:\\School UIC\\GAN\\attentive-gan-derainnet\\tools\\Glare\\test_7.png",
+  "timestamp": "2025-10-27T04:09:17.029334",
+  "detection": {
+    "rain_score": 0.18,
+    "glare_score": 0.0020109953703703705,
+    "needs_enhance": false,
+    "glare_pixel_count": "695",
+    "glare_percentage": 0.20109953703703703
+  },
+  "expected_mode": "NONE",
+  "processing_time": 0.06448650360107422,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "NONE",
+    "metrics": {
+      "rain_score": 0.18,
+      "glare_score": 0.0020109953703703705,
+      "needed_enhancement": false
+    }
+  },
+  "status": "success",
+  "actual_mode": "NONE",
+  "output_path": "thesis_results\\enhanced_images\\enhanced_test_7.png",
+  "mode_correct": true,
+  "metrics": {
+    "rain_score": 0.18,
+    "glare_score": 0.0020109953703703705,
+    "needed_enhancement": false
+  },
+  "derain_outputs": [
+    "derain_ret.png",
+    "src_img.png",
+    "comparison.png",
+    "derain_results.txt"
+  ]
+}

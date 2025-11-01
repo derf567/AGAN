@@ -1,0 +1,67 @@
+{
+  "index": 56,
+  "filename": "Copy of KIMG0115.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0115.JPG",
+  "timestamp": "2025-10-27T14:26:50.117287",
+  "detection": {
+    "rain_score": 0.19704427174252373,
+    "glare_score": 0.015583528493364559,
+    "needs_enhance": true,
+    "glare_pixel_count": "6388",
+    "glare_percentage": 1.5583528493364558,
+    "contrast": 64.61062784748961,
+    "brightness": 124.78554839968774,
+    "sharpness": 520.5807079136621
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.8065094947814941,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 64.61062784748961,
+        "brightness": 253.92814652473388,
+        "saturation": 4.358797745773325
+      },
+      "enhanced": {
+        "contrast": 61.57486029800871,
+        "brightness": 171.37319974953036,
+        "saturation": 13.486224170319348
+      },
+      "improvements": {
+        "contrast_gain": -3.0357675494809016,
+        "brightness_reduction": 82.55494677520352,
+        "saturation_gain": 9.127426424546023,
+        "glare_area_reduced": 0.9978083907326236,
+        "ssim": 0.9661362790815977,
+        "psnr": 20.953096528877143
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0115.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 64.61062784748961,
+      "brightness": 253.92814652473388,
+      "saturation": 4.358797745773325
+    },
+    "enhanced": {
+      "contrast": 61.57486029800871,
+      "brightness": 171.37319974953036,
+      "saturation": 13.486224170319348
+    },
+    "improvements": {
+      "contrast_gain": -3.0357675494809016,
+      "brightness_reduction": 82.55494677520352,
+      "saturation_gain": 9.127426424546023,
+      "glare_area_reduced": 0.9978083907326236,
+      "ssim": 0.9661362790815977,
+      "psnr": 20.953096528877143
+    }
+  }
+}

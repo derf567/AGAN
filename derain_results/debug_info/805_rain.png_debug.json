@@ -1,0 +1,70 @@
+{
+  "index": 68,
+  "filename": "805_rain.png",
+  "input_path": "D:\\School UIC\\GAN\\attentive-gan-derainnet\\tools\\Deraining\\805_rain.png",
+  "timestamp": "2025-10-27T11:51:20.576953",
+  "detection": {
+    "rain_score": 0.18,
+    "glare_score": 0.023125,
+    "needs_enhance": false,
+    "glare_pixel_count": "7992",
+    "glare_percentage": 2.3125
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 0.6389186382293701,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 42.16576120165822,
+        "brightness": 210.610985985986,
+        "saturation": 26.49024024024024
+      },
+      "enhanced": {
+        "contrast": 38.764754599528295,
+        "brightness": 144.44757257257257,
+        "saturation": 14.217092092092091
+      },
+      "improvements": {
+        "contrast_gain": -3.4010066021299252,
+        "brightness_reduction": 66.16341341341342,
+        "saturation_gain": -12.273148148148149,
+        "glare_area_reduced": 1.0,
+        "ssim": 0.9845723290661521,
+        "psnr": 28.51684400311229
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "derain_results\\enhanced_images\\enhanced_805_rain.png",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 42.16576120165822,
+      "brightness": 210.610985985986,
+      "saturation": 26.49024024024024
+    },
+    "enhanced": {
+      "contrast": 38.764754599528295,
+      "brightness": 144.44757257257257,
+      "saturation": 14.217092092092091
+    },
+    "improvements": {
+      "contrast_gain": -3.4010066021299252,
+      "brightness_reduction": 66.16341341341342,
+      "saturation_gain": -12.273148148148149,
+      "glare_area_reduced": 1.0,
+      "ssim": 0.9845723290661521,
+      "psnr": 28.51684400311229
+    }
+  },
+  "derain_outputs": [
+    "derain_ret.png",
+    "src_img.png",
+    "comparison.png",
+    "derain_results.txt"
+  ]
+}

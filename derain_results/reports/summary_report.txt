@@ -1,0 +1,50 @@
+================================================================================
+DERAINING FOLDER BATCH TEST SUMMARY
+THESIS PROJECT - DASHCAM ENHANCEMENT SYSTEM
+================================================================================
+
+Test Date: 2025-10-27 11:55:39
+Input Folder: D:\School UIC\GAN\attentive-gan-derainnet\tools\Deraining
+Output Folder: derain_results
+Configuration: None
+
+DETECTION THRESHOLDS USED
+--------------------------------------------------------------------------------
+Rain Detection Threshold:  0.25
+Glare Detection Threshold: 0.007
+
+PROCESSING STATISTICS
+--------------------------------------------------------------------------------
+Total Images Tested:     200
+Successfully Processed:  200 (100.0%)
+Failed:                  0 (0.0%)
+
+PROCESSING MODE DISTRIBUTION
+--------------------------------------------------------------------------------
+DERAIN Mode:             24 images (12.0%)
+DEGLARE Mode:            136 images (68.0%)
+ENHANCE Mode:            18 images (9.0%)
+NONE Mode:               22 images (11.0%)
+
+MODE ACCURACY ANALYSIS
+--------------------------------------------------------------------------------
+Correct Mode Selection:  200 / 200 (100.0%)
+Incorrect Mode:          0 images (0.0%)
+
+⚠ CRITICAL ISSUE DETECTION ⚠
+--------------------------------------------------------------------------------
+Rain Images that Ran DEGLARE: 0
+
+✓ EXCELLENT: All rain images correctly processed with DERAIN mode!
+
+
+PERFORMANCE METRICS
+--------------------------------------------------------------------------------
+Average Processing Time: 1.97s
+Fastest:                 0.06s
+Slowest:                 34.42s
+Total Time:              393.18s (6.6 minutes)
+
+================================================================================
+END OF REPORT
+================================================================================

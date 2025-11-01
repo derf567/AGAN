@@ -1,0 +1,50 @@
+================================================================================
+INTELLIGENT SWITCHING BATCH TEST SUMMARY
+THESIS PROJECT - DASHCAM ENHANCEMENT SYSTEM
+================================================================================
+
+Test Date: 2025-10-27 04:17:29
+Input Folder: D:\School UIC\GAN\attentive-gan-derainnet\tools\Glare
+Output Folder: thesis_results
+Configuration: None
+
+DETECTION THRESHOLDS USED
+--------------------------------------------------------------------------------
+Rain Detection Threshold:  0.25
+Glare Detection Threshold: 0.01
+
+PROCESSING STATISTICS
+--------------------------------------------------------------------------------
+Total Images Tested:     200
+Successfully Processed:  200 (100.0%)
+Failed:                  0 (0.0%)
+
+PROCESSING MODE DISTRIBUTION
+--------------------------------------------------------------------------------
+DEGLARE Mode:            186 images (93.0%)
+DERAIN Mode:             0 images (0.0%)
+ENHANCE Mode:            14 images (7.0%)
+NONE Mode:               0 images (0.0%)
+
+MODE ACCURACY ANALYSIS
+--------------------------------------------------------------------------------
+Correct Mode Selection:  200 / 200 (100.0%)
+Incorrect Mode:          0 images (0.0%)
+
+⚠ CRITICAL ISSUE DETECTION ⚠
+--------------------------------------------------------------------------------
+Glare Images that Ran DERAIN: 0
+
+✓ EXCELLENT: All glare images correctly processed with DEGLARE mode!
+
+
+PERFORMANCE METRICS
+--------------------------------------------------------------------------------
+Average Processing Time: 0.75s
+Fastest:                 0.27s
+Slowest:                 5.15s
+Total Time:              150.17s (2.5 minutes)
+
+================================================================================
+END OF REPORT
+================================================================================

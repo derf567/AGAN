@@ -1,0 +1,21 @@
+================================================================================
+PERFORMANCE STATISTICS
+================================================================================
+
+Total Images:            200
+Mean Processing Time:    0.751s
+Median Processing Time:  0.700s
+Std Dev:                 0.600s
+Min Time:                0.274s
+Max Time:                5.146s
+Total Time:              150.17s (2.5 min)
+
+Percentiles:
+  25th:                  0.637s
+  50th (median):         0.700s
+  75th:                  0.720s
+  95th:                  0.795s
+
+Processing Rate:
+  Images per minute:     79.9
+  Images per hour:       4795

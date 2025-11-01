@@ -1,0 +1,67 @@
+{
+  "index": 78,
+  "filename": "Copy of KIMG0137.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0137.JPG",
+  "timestamp": "2025-10-27T14:27:09.156639",
+  "detection": {
+    "rain_score": 0.19520908423325709,
+    "glare_score": 0.011004586260733801,
+    "needs_enhance": true,
+    "glare_pixel_count": "4511",
+    "glare_percentage": 1.1004586260733802,
+    "contrast": 64.27139726605559,
+    "brightness": 101.7341237314598,
+    "sharpness": 500.02912724557325
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.7577645778656006,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 64.27139726605559,
+        "brightness": 254.6705830192862,
+        "saturation": 3.6552870760363554
+      },
+      "enhanced": {
+        "contrast": 60.069592943118415,
+        "brightness": 150.10840168477057,
+        "saturation": 24.232099312790954
+      },
+      "improvements": {
+        "contrast_gain": -4.201804322937171,
+        "brightness_reduction": 104.56218133451563,
+        "saturation_gain": 20.5768122367546,
+        "glare_area_reduced": 0.9997783196630459,
+        "ssim": 0.9771106811733932,
+        "psnr": 22.017959045511756
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0137.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 64.27139726605559,
+      "brightness": 254.6705830192862,
+      "saturation": 3.6552870760363554
+    },
+    "enhanced": {
+      "contrast": 60.069592943118415,
+      "brightness": 150.10840168477057,
+      "saturation": 24.232099312790954
+    },
+    "improvements": {
+      "contrast_gain": -4.201804322937171,
+      "brightness_reduction": 104.56218133451563,
+      "saturation_gain": 20.5768122367546,
+      "glare_area_reduced": 0.9997783196630459,
+      "ssim": 0.9771106811733932,
+      "psnr": 22.017959045511756
+    }
+  }
+}

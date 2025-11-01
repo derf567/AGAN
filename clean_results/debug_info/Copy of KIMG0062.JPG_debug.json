@@ -1,0 +1,67 @@
+{
+  "index": 6,
+  "filename": "Copy of KIMG0062.JPG",
+  "input_path": "tools\\Clean\\Copy of KIMG0062.JPG",
+  "timestamp": "2025-10-27T14:26:23.608229",
+  "detection": {
+    "rain_score": 0.20550250843653417,
+    "glare_score": 0.007679547228727557,
+    "needs_enhance": false,
+    "glare_pixel_count": "3148",
+    "glare_percentage": 0.7679547228727557,
+    "contrast": 66.03169095157047,
+    "brightness": 128.23803669008586,
+    "sharpness": 637.8607774887166
+  },
+  "expected_mode": "DEGLARE",
+  "processing_time": 1.6570053100585938,
+  "processing_result": {
+    "final_status": "success",
+    "processing_mode": "DEGLARE",
+    "quality_passed": false,
+    "metrics": {
+      "original": {
+        "contrast": 66.03169095157047,
+        "brightness": 253.72617534942822,
+        "saturation": 3.7144218551461243
+      },
+      "enhanced": {
+        "contrast": 64.98662375716191,
+        "brightness": 183.02001270648032,
+        "saturation": 25.585133418043203
+      },
+      "improvements": {
+        "contrast_gain": -1.0450671944085599,
+        "brightness_reduction": 70.7061626429479,
+        "saturation_gain": 21.87071156289708,
+        "glare_area_reduced": 1.0,
+        "ssim": 0.9876661956530361,
+        "psnr": 26.25128144513682
+      }
+    }
+  },
+  "status": "success",
+  "actual_mode": "DEGLARE",
+  "output_path": "clean_results\\enhanced_images\\enhanced_Copy of KIMG0062.JPG",
+  "mode_correct": true,
+  "metrics": {
+    "original": {
+      "contrast": 66.03169095157047,
+      "brightness": 253.72617534942822,
+      "saturation": 3.7144218551461243
+    },
+    "enhanced": {
+      "contrast": 64.98662375716191,
+      "brightness": 183.02001270648032,
+      "saturation": 25.585133418043203
+    },
+    "improvements": {
+      "contrast_gain": -1.0450671944085599,
+      "brightness_reduction": 70.7061626429479,
+      "saturation_gain": 21.87071156289708,
+      "glare_area_reduced": 1.0,
+      "ssim": 0.9876661956530361,
+      "psnr": 26.25128144513682
+    }
+  }
+}
