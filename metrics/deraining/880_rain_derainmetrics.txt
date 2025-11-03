@@ -1,0 +1,10 @@
+============================================================
+DERAIN METRICS REPORT
+============================================================
+Original: D:\School UIC\AGANN\AGAN\tools\Test_Images\880_rain.png
+Derained: derain_ret.png
+
+PSNR: 10.36 dB
+SSIM: 0.2837
+Contrast (orig→derain): 78.97 → 31.68
+Brightness (orig→derain): 116.10 → 122.05

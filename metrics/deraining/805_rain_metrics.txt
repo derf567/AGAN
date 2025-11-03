@@ -1,9 +1,9 @@
 ======================================================================
 DERAINING MODEL TEST RESULTS
 ======================================================================
-Timestamp: 2025-11-03 22:03:08
+Timestamp: 2025-11-03 21:58:55
 Scene Type: NIGHT
-Input Image: D:\School UIC\AGANN\AGAN\tools\Test_Images\test_7.png
+Input Image: D:\School UIC\AGANN\AGAN\tools\Test_Images\805_rain.png
 Weights Path: D:\School UIC\AGANN\AGAN\weights\derain_gan\derain_gan.ckpt-100000
 Label Path: None
 ----------------------------------------------------------------------
@@ -61,8 +61,8 @@ SYSTEM:
 
 PERFORMANCE METRICS
 ======================================================================
-SSIM: 0.58735
-PSNR: 18.87 dB
+SSIM: 0.66398
+PSNR: 16.70 dB
 ======================================================================
 
 Results saved successfully!

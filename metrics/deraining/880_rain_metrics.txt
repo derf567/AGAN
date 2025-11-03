@@ -1,9 +1,9 @@
 ======================================================================
 DERAINING MODEL TEST RESULTS
 ======================================================================
-Timestamp: 2025-11-03 22:03:08
-Scene Type: NIGHT
-Input Image: D:\School UIC\AGANN\AGAN\tools\Test_Images\test_7.png
+Timestamp: 2025-11-03 17:56:28
+Scene Type: DAY
+Input Image: D:\School UIC\AGANN\AGAN\tools\Test_Images\880_rain.png
 Weights Path: D:\School UIC\AGANN\AGAN\weights\derain_gan\derain_gan.ckpt-100000
 Label Path: None
 ----------------------------------------------------------------------
@@ -12,12 +12,12 @@ CONFIGURATION USED
 ======================================================================
 
 PREPROCESSING:
-  resize_method: INTER_CUBIC
+  resize_method: INTER_LINEAR
   normalize_method: standard
   color_space: BGR
-  denoise_before: True
-  denoise_strength: 5
-  contrast_adjust: 1.2
+  denoise_before: False
+  denoise_strength: 3
+  contrast_adjust: 1.0
 
 INFERENCE:
   target_width: 512
@@ -26,29 +26,31 @@ INFERENCE:
 
 ATTENTION:
   num_maps: 4
-  attention_threshold: 0.4
-  attention_weights: [0.3, 0.3, 0.2, 0.2]
-  use_weighted_attention: True
-  apply_attention_mask: True
-  mask_threshold: 0.25
+  attention_threshold: 0.5
+  attention_weights: [0.25, 0.25, 0.25, 0.25]
+  use_weighted_attention: False
+  apply_attention_mask: False
+  mask_threshold: 0.3
 
 POSTPROCESSING:
-  apply_clahe: True
-  clahe_clip_limit: 4.0
+  apply_clahe: False
+  clahe_clip_limit: 2.5
   clahe_tile_size: 8
-  sharpen: falsee
-  sharpen_strength: 0.6
+  sharpen: True
+  sharpen_strength: 0.4
   bilateral_filter: False
   bilateral_d: 9
-  bilateral_sigma_color: 100
-  bilateral_sigma_space: 100
+  bilateral_sigma_color: 75
+  bilateral_sigma_space: 75
+  gamma_correction: 1.1
+  saturation_boost: 1.05
 
 QUALITY:
-  min_ssim: 0.6
-  min_psnr: 16
+  min_ssim: 0.65
+  min_psnr: 18
   check_quality: False
   auto_retry_on_failure: False
-  max_retries: 3
+  max_retries: 2
   fallback_to_original: False
 
 SYSTEM:
@@ -61,8 +63,8 @@ SYSTEM:
 
 PERFORMANCE METRICS
 ======================================================================
-SSIM: 0.58735
-PSNR: 18.87 dB
+SSIM: 0.28370
+PSNR: 10.36 dB
 ======================================================================
 
 Results saved successfully!

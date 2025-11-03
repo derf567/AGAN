@@ -1,6 +1,6 @@
 QUICK SUMMARY
 ==================================================
-Image: 769_rain
-Scene: DEFAULT
-PSNR: 24.07 dB
-SSIM: 0.88215
+Image: 805_rain
+Scene: NIGHT
+PSNR: 16.70 dB
+SSIM: 0.66398

@@ -33,12 +33,12 @@ if parent_dir not in sys.path:
 
 try:
     from attentive_gan_model import derain_drop_net
-    print("[OK] Successfully imported derain_drop_net")
+    print(" Successfully imported derain_drop_net")
 except ImportError:
     try:
         import attentive_gan_model.derain_drop_net as derain_module
         derain_drop_net = derain_module
-        print("[OK] Successfully imported derain_drop_net (alternate method)")
+        print(" Successfully imported derain_drop_net (alternate method)")
     except ImportError as e:
         print(f"[FAIL] Failed to import derain_drop_net: {e}")
         import importlib.util
@@ -48,11 +48,11 @@ except ImportError:
         )
         derain_drop_net = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(derain_drop_net)
-        print("[OK] Successfully loaded derain_drop_net (manual loading)")
+        print(" Successfully loaded derain_drop_net (manual loading)")
 
 try:
     from config import global_config
-    print("[OK] Successfully imported global_config")
+    print(" Successfully imported global_config")
 except ImportError:
     import importlib.util
     spec = importlib.util.spec_from_file_location(
@@ -61,7 +61,7 @@ except ImportError:
     )
     global_config = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(global_config)
-    print("[OK] Successfully loaded global_config")
+    print(" Successfully loaded global_config")
 
 CFG = global_config.cfg
 
@@ -80,25 +80,25 @@ class DerainConfigManager:
                 with open(config_path, 'r') as f:
                     self.config = yaml.safe_load(f)
                     self.loaded_from_file = True
-                print(f"[OK] Loaded config from: {config_path}")
+                print(f" Loaded config from: {config_path}")
                 
                 # CRITICAL FIX: Validate that day/night settings exist
                 if 'day_settings' not in self.config:
-                    print(f"[WARN] 'day_settings' missing in config!")
+                    print(f" 'day_settings' missing in config!")
                 else:
-                    print(f"[OK] 'day_settings' found in config")
+                    print(f" 'day_settings' found in config")
                     
                 if 'night_settings' not in self.config:
-                    print(f"[WARN] 'night_settings' missing in config!")
+                    print(f" 'night_settings' missing in config!")
                 else:
-                    print(f"[OK] 'night_settings' found in config")
+                    print(f" 'night_settings' found in config")
                     
             except Exception as e:
-                print(f"[ERROR] Failed to load config: {e}")
-                print(f"[WARN] Using default config as fallback")
+                print(f" Failed to load config: {e}")
+                print(f" Using default config as fallback")
                 self.config = self._get_default_config()
         else:
-            print(f"[WARN] Config file not found: {config_path}")
+            print(f" Config file not found: {config_path}")
             print(f"[INFO] Using built-in default config")
             self.config = self._get_default_config()
     
@@ -166,9 +166,9 @@ class DerainConfigManager:
         # CRITICAL FIX: Check if the detected scene config exists
         settings_key = f'{scene_type}_settings'
         if settings_key not in self.config:
-            print(f"[WARN] '{settings_key}' not found in config!")
-            print(f"[WARN] Available keys: {list(self.config.keys())}")
-            print(f"[WARN] Falling back to 'default_settings'")
+            print(f" '{settings_key}' not found in config!")
+            print(f" Available keys: {list(self.config.keys())}")
+            print(f" Falling back to 'default_settings'")
             return 'default'
         
         return scene_type
@@ -192,8 +192,8 @@ class DerainConfigManager:
             missing_keys = [k for k in required_keys if k not in settings]
             
             if missing_keys:
-                print(f"[WARN] Settings incomplete, missing: {missing_keys}")
-                print(f"[WARN] Falling back to default_settings")
+                print(f" Settings incomplete, missing: {missing_keys}")
+                print(f" Falling back to default_settings")
                 return self.config.get('default_settings', {})
             
             print(f"[CONFIG] ✓ Loaded {scene_type} settings successfully")
@@ -217,90 +217,6 @@ def get_resize_method(method_name):
     return methods.get(method_name, cv2.INTER_LINEAR)
 
 
-def preprocess_image(image, settings, verbose=True):
-    """Apply preprocessing based on config"""
-    prep_config = settings.get('preprocessing', {})
-    
-    if verbose:
-        print(f"[PREPROCESS] Config keys: {list(prep_config.keys())}")
-    
-    # Denoise if configured
-    if prep_config.get('denoise_before', False):
-        strength = prep_config.get('denoise_strength', 5)
-        image = cv2.fastNlMeansDenoisingColored(image, None, strength, strength, 7, 21)
-        if verbose:
-            print(f"  ✓ Applied denoising (strength: {strength})")
-    
-    # Contrast adjustment
-    contrast = prep_config.get('contrast_adjust', 1.0)
-    if contrast != 1.0:
-        image = cv2.convertScaleAbs(image, alpha=contrast, beta=0)
-        if verbose:
-            print(f"  ✓ Adjusted contrast (factor: {contrast})")
-    
-    return image
-
-
-def postprocess_image(image, settings, verbose=True):
-    """Apply post-processing based on config"""
-    post_config = settings.get('postprocessing', {})
-    result = image.copy()
-    
-    if verbose:
-        print(f"[POSTPROCESS] Config keys: {list(post_config.keys())}")
-    
-    # CLAHE
-    if post_config.get('apply_clahe', False):
-        clip_limit = post_config.get('clahe_clip_limit', 2.0)
-        tile_size = post_config.get('clahe_tile_size', 8)
-        
-        lab = cv2.cvtColor(result, cv2.COLOR_BGR2LAB)
-        clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=(tile_size, tile_size))
-        lab[:,:,0] = clahe.apply(lab[:,:,0])
-        result = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)
-        
-        if verbose:
-            print(f"  ✓ Applied CLAHE (clip={clip_limit}, tile={tile_size})")
-    
-    # Bilateral filter
-    if post_config.get('bilateral_filter', False):
-        d = post_config.get('bilateral_d', 9)
-        sigma_color = post_config.get('bilateral_sigma_color', 75)
-        sigma_space = post_config.get('bilateral_sigma_space', 75)
-        
-        result = cv2.bilateralFilter(result, d, sigma_color, sigma_space)
-        if verbose:
-            print(f"  ✓ Applied bilateral filter (d={d})")
-    
-    # Sharpening
-    if post_config.get('sharpen', False):
-        strength = post_config.get('sharpen_strength', 0.5)
-        kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]]) * strength
-        kernel[1,1] = 8 + strength
-        result = cv2.filter2D(result, -1, kernel / kernel.sum())
-        if verbose:
-            print(f"  ✓ Applied sharpening (strength={strength})")
-    
-    # Gamma correction
-    gamma = post_config.get('gamma_correction', 1.0)
-    if gamma != 1.0:
-        inv_gamma = 1.0 / gamma
-        table = np.array([((i / 255.0) ** inv_gamma) * 255 
-                         for i in np.arange(0, 256)]).astype("uint8")
-        result = cv2.LUT(result, table)
-        if verbose:
-            print(f"  ✓ Applied gamma correction (gamma={gamma})")
-    
-    # Saturation boost
-    sat_boost = post_config.get('saturation_boost', 1.0)
-    if sat_boost != 1.0:
-        hsv = cv2.cvtColor(result, cv2.COLOR_BGR2HSV).astype(np.float32)
-        hsv[:,:,1] = np.clip(hsv[:,:,1] * sat_boost, 0, 255)
-        result = cv2.cvtColor(hsv.astype(np.uint8), cv2.COLOR_HSV2BGR)
-        if verbose:
-            print(f"  ✓ Applied saturation boost (factor={sat_boost})")
-    
-    return result
 
 
 def minmax_scale(input_arr):
@@ -383,7 +299,7 @@ def save_results_to_file(image_path, weights_path, label_path, output_image, att
             f.write(full_content)
         print(f"[SAVE] Detailed metrics → {detailed_metrics_file}")
     except Exception as e:
-        print(f"[ERROR] Failed to save detailed metrics: {e}")
+        print(f" Failed to save detailed metrics: {e}")
     
     # 2. Write to main output file (command line specified location)
     try:
@@ -391,7 +307,7 @@ def save_results_to_file(image_path, weights_path, label_path, output_image, att
             f.write(full_content)
         print(f"[SAVE] Main output file → {main_output_file}")
     except Exception as e:
-        print(f"[ERROR] Failed to save main output: {e}")
+        print(f" Failed to save main output: {e}")
     
     # === ALSO CREATE A SIMPLE SUMMARY VERSION ===
     if ssim_val is not None and psnr_val is not None:
@@ -406,16 +322,12 @@ def save_results_to_file(image_path, weights_path, label_path, output_image, att
                 f.write(f"SSIM: {ssim_val:.5f}\n")
             print(f"[SAVE] Quick summary → {summary_file}")
         except Exception as e:
-            print(f"[WARN] Failed to save summary: {e}")
+            print(f" Failed to save summary: {e}")
             
-
 def test_model(image_path, weights_path, label_path=None, output_file='derain_results.txt',
                config_path='deraining_config.yaml', force_scene=None):
     """
-    FIXED: Test deraining model with proper day/night config loading
-    
-    Args:
-        force_scene: Optional override ('day', 'night', 'default')
+    COMPLETE: Deraining with PROPER day/night settings application
     """
     assert ops.exists(image_path), f"Image not found: {image_path}"
     
@@ -427,12 +339,14 @@ def test_model(image_path, weights_path, label_path=None, output_file='derain_re
     image = cv2.imread(image_path, cv2.IMREAD_COLOR)
     if verbose:
         print(f"\n{'='*70}")
-        print(f"DERAINING WITH BRIGHTNESS-BASED SCENE DETECTION")
+        print(f"DERAINING WITH DAY/NIGHT SETTINGS")
         print(f"{'='*70}")
         print(f"Input: {image_path}")
         print(f"Size: {image.shape[1]}x{image.shape[0]}")
     
-    # FIX: Detect scene type (unless forced)
+    # ================================================================
+    # SCENE DETECTION
+    # ================================================================
     if force_scene:
         scene_type = force_scene
         if verbose:
@@ -442,37 +356,60 @@ def test_model(image_path, weights_path, label_path=None, output_file='derain_re
         if verbose:
             print(f"\n[AUTO] Detected scene type: {scene_type.upper()}")
     
-    # FIX: Get settings and validate
+    # ================================================================
+    # LOAD SETTINGS
+    # ================================================================
     settings = config_manager.get_settings(scene_type)
     
     if not settings:
-        print(f"[ERROR] Failed to load settings for scene: {scene_type}")
-        print(f"[ERROR] Using minimal default settings")
+        print(f" Failed to load settings for scene: {scene_type}")
         settings = config_manager._get_default_config()['default_settings']
     
-    # Preprocessing
+    # ================================================================
+    # STEP 1: PREPROCESSING (Apply night/day settings!)
+    # ================================================================
     if verbose:
-        print(f"\n[STEP 1] Preprocessing:")
-    image_processed = preprocess_image(image, settings, verbose)
+        print(f"\n[STEP 1] Applying {scene_type.upper()} preprocessing...")
     
-    # Resize for model
+    prep_config = settings.get('preprocessing', {})
+    
+    # Apply denoising if configured
+    if prep_config.get('denoise_before', False):
+        strength = prep_config.get('denoise_strength', 5)
+        image = cv2.fastNlMeansDenoisingColored(image, None, strength, strength, 7, 21)
+        if verbose:
+            print(f"  ✓ Applied denoising (strength: {strength})")
+    
+    # Apply contrast adjustment
+    contrast = prep_config.get('contrast_adjust', 1.0)
+    if contrast != 1.0:
+        image = cv2.convertScaleAbs(image, alpha=contrast, beta=0)
+        if verbose:
+            print(f"  ✓ Adjusted contrast (factor: {contrast})")
+    
+    # ================================================================
+    # RESIZE FOR MODEL
+    # ================================================================
     inf_config = settings.get('inference', {})
     target_w = inf_config.get('target_width', 512)
     target_h = inf_config.get('target_height', 512)
-    resize_method = get_resize_method(settings.get('preprocessing', {}).get('resize_method', 'INTER_LINEAR'))
+    resize_method_name = prep_config.get('resize_method', 'INTER_LINEAR')
+    resize_method = get_resize_method(resize_method_name)
     
-    image_resized = cv2.resize(image_processed, (target_w, target_h), interpolation=resize_method)
+    if verbose:
+        print(f"\n[INFERENCE CONFIG]")
+        print(f"  Target size: {target_w}x{target_h}")
+        print(f"  Resize method: {resize_method_name}")
+        print(f"  Scene type: {scene_type}")
+    
+    image_resized = cv2.resize(image, (target_w, target_h), interpolation=resize_method)
     image_normalized = np.divide(np.array(image_resized, np.float32), 127.5) - 1.0
     
-    # Load label if available
-    label_image_vis = None
-    if label_path is not None and os.path.exists(label_path):
-        label_image = cv2.imread(label_path, cv2.IMREAD_COLOR)
-        label_image_vis = cv2.resize(label_image, (target_w, target_h), interpolation=resize_method)
-    
-    # Build model
+    # ================================================================
+    # STEP 2: BUILD MODEL AND RUN INFERENCE
+    # ================================================================
     if verbose:
-        print(f"\n[STEP 2] Running model inference...")
+        print(f"\n[STEP 2] Running GAN model inference...")
     
     input_tensor = tf.placeholder(
         dtype=tf.float32,
@@ -488,7 +425,7 @@ def test_model(image_path, weights_path, label_path=None, output_file='derain_re
         try:
             net = derain_drop_net.derain_drop_net(phase=phase)
         except AttributeError:
-            print("[ERROR] Could not find DeRainNet class")
+            print(" Could not find DeRainNet class")
             sys.exit(1)
     
     output, attention_maps = net.inference(input_tensor=input_tensor, name='derain_net')
@@ -506,6 +443,7 @@ def test_model(image_path, weights_path, label_path=None, output_file='derain_re
     with sess.as_default():
         saver.restore(sess=sess, save_path=weights_path)
         
+        # RUN INFERENCE
         output_image, atte_maps = sess.run(
             [output, attention_maps],
             feed_dict={input_tensor: np.expand_dims(image_normalized, 0)}
@@ -519,45 +457,114 @@ def test_model(image_path, weights_path, label_path=None, output_file='derain_re
         
         output_image = np.array(output_image, np.uint8)
         
-        # Post-processing
+        # ================================================================
+        # STEP 3: POST-PROCESSING (Apply night/day settings!)
+        # ================================================================
         if verbose:
-            print(f"\n[STEP 3] Post-processing:")
-        output_image = postprocess_image(output_image, settings, verbose)
+            print(f"\n[STEP 3] Applying {scene_type.upper()} post-processing...")
         
-        # Calculate metrics using IntelligentImageProcessor
-        print("\n[STEP 4] Evaluating deraining quality metrics...")
+        post_config = settings.get('postprocessing', {})
+        result = output_image.copy()
+        
+        # CLAHE Enhancement
+        if post_config.get('apply_clahe', False):
+            clip_limit = post_config.get('clahe_clip_limit', 2.0)
+            tile_size = post_config.get('clahe_tile_size', 8)
+            
+            lab = cv2.cvtColor(result, cv2.COLOR_BGR2LAB)
+            clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=(tile_size, tile_size))
+            lab[:,:,0] = clahe.apply(lab[:,:,0])
+            result = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)
+            
+            if verbose:
+                print(f"  ✓ Applied CLAHE (clip={clip_limit}, tile={tile_size})")
+        
+        # Bilateral Filter
+        if post_config.get('bilateral_filter', False):
+            d = post_config.get('bilateral_d', 9)
+            sigma_color = post_config.get('bilateral_sigma_color', 75)
+            sigma_space = post_config.get('bilateral_sigma_space', 75)
+            
+            result = cv2.bilateralFilter(result, d, sigma_color, sigma_space)
+            if verbose:
+                print(f"  ✓ Applied bilateral filter (d={d})")
+        
+        # Sharpening
+        if post_config.get('sharpen', False):
+            strength = post_config.get('sharpen_strength', 0.5)
+            kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]]) * strength
+            kernel[1,1] = 8 + strength
+            result = cv2.filter2D(result, -1, kernel / kernel.sum())
+            if verbose:
+                print(f"  ✓ Applied sharpening (strength={strength})")
+        
+        # Gamma Correction
+        gamma = post_config.get('gamma_correction', 1.0)
+        if gamma != 1.0:
+            inv_gamma = 1.0 / gamma
+            table = np.array([((i / 255.0) ** inv_gamma) * 255 
+                             for i in np.arange(0, 256)]).astype("uint8")
+            result = cv2.LUT(result, table)
+            if verbose:
+                print(f"  ✓ Applied gamma correction (gamma={gamma})")
+        
+        # Saturation Boost
+        sat_boost = post_config.get('saturation_boost', 1.0)
+        if sat_boost != 1.0:
+            hsv = cv2.cvtColor(result, cv2.COLOR_BGR2HSV).astype(np.float32)
+            hsv[:,:,1] = np.clip(hsv[:,:,1] * sat_boost, 0, 255)
+            result = cv2.cvtColor(hsv.astype(np.uint8), cv2.COLOR_HSV2BGR)
+            if verbose:
+                print(f"  ✓ Applied saturation boost (factor={sat_boost})")
+        
+        output_image = result
+        
+        # ================================================================
+        # STEP 4: SAVE AND EVALUATE
+        # ================================================================
+        if verbose:
+            print(f"\n[STEP 4] Saving output...")
+        
+        # Save output
+        cv2.imwrite('derain_ret.png', output_image)
+        
+        # Calculate metrics
+        print("\n[STEP 5] Evaluating deraining quality metrics...")
+        ssim_val = None
+        psnr_val = None
+        
         try:
             result_metrics = IntelligentImageProcessor.compute_derain_metrics(
-                image_path,    # original input
-                "derain_ret.png"  # generated output file
+                image_path,
+                "derain_ret.png"
             )
             if result_metrics:
                 psnr_val = result_metrics["psnr"]
                 ssim_val = result_metrics["ssim"]
                 print(f"[METRICS] PSNR: {psnr_val:.2f} dB | SSIM: {ssim_val:.4f}")
-            else:
-                print("[WARN] Metric computation returned None — check image paths or output.")
         except Exception as e:
             import traceback
-            print(f"[ERROR] Failed to compute derain metrics: {e}")
+            print(f" Failed to compute metrics: {e}")
             print(traceback.format_exc())
-
         
         # Save results
         save_results_to_file(
             image_path, weights_path, label_path, output_image, atte_maps,
-            ssim_val, psnr_val, output_file, scene_type, settings,
+            ssim_val, psnr_val, output_file, 
+            scene_type,
+            settings,
             full_config=config_manager.config
         )
         
-        # Save outputs
+        # Save additional outputs
         cv2.imwrite('src_img.png', image_resized)
-        cv2.imwrite('derain_ret.png', output_image)
         cv2.imwrite('comparison.png', np.hstack([image_resized, output_image]))
         
         if verbose:
             print(f"\n[DONE] Processing complete!")
             print(f"  Scene: {scene_type.upper()}")
+            print(f"  Applied preprocessing: {list(prep_config.keys())}")
+            print(f"  Applied postprocessing: {list(post_config.keys())}")
             print(f"  Output: derain_ret.png")
             print(f"{'='*70}\n")
     

@@ -46,8 +46,6 @@ day_settings:
     bilateral_d: 9
     bilateral_sigma_color: 75
     bilateral_sigma_space: 75
-    gamma_correction: 1.1       # Slight brightness boost
-    saturation_boost: 1.05
     
   quality:
     min_ssim: 0.65
@@ -86,14 +84,12 @@ night_settings:
     apply_clahe: true
     clahe_clip_limit: 4.0       # STRONGER for night
     clahe_tile_size: 8
-    sharpen: true
+    sharpen: falsee
     sharpen_strength: 0.6       # More sharpening
-    bilateral_filter: true
+    bilateral_filter: false
     bilateral_d: 9
     bilateral_sigma_color: 100
     bilateral_sigma_space: 100
-    gamma_correction: 1.4       # Much brigclshter
-    saturation_boost: 1.2       # Boost colors more
     
   quality:
     min_ssim: 0.60
