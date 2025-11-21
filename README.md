@@ -18,9 +18,26 @@ You can test a single image on the trained model as follows
 
 ```
 cd REPO_ROOT_DIR
+
+
 python tools/test_model.py --weights_path ./weights/derain_gan/derain_gan.ckpt-100000
 --image_path ./data/test_data/test_1.png
+
+python intelligent_switch.py --image path/to/input.jpg --output path/to/enhanced.jpg
+
+
 ```
+Processing Modes:
+
+DERAIN: Rain removal using Attentive GAN
+
+DEGLARE: Headlight glare reduction
+
+ENHANCE: General quality improvement
+
+NONE: Skip processing for clean images
+
+
 ## Train your own model
 
 #### Data Preparation
