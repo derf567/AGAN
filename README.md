@@ -10,7 +10,7 @@ pip3 install -r requirements.txt
 
 ## Test model
 In this repo I uploaded a model trained on dataset provided by the origin author 
-[origin_dataset](https://drive.google.com/open?id=1e7R76s6vwUJxILOcAsthgDLPSnOrQ49K).
+[origin_dataset](UPLOADING NOT YET DONE).
 
 The trained derain net model weights files are stored in folder weights/
 
