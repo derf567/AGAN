@@ -21,33 +21,6 @@ cd REPO_ROOT_DIR
 python tools/test_model.py --weights_path ./weights/derain_gan/derain_gan.ckpt-100000
 --image_path ./data/test_data/test_1.png
 ```
-
-The results are as follows:
-
-`Test Input Image`
-
-![Test Input](./data/images/src_img.png)
-
-`Test Derain result image`
-
-![Test Derain_Result](./data/images/derain_ret.png)
-
-`Test Attention Map at time 1`
-
-![Test Attention_Map_1](./data/images/atte_map_1.png)
-
-`Test Attention Map at time 2`
-
-![Test Attention_Map_2](./data/images/atte_map_2.png)
-
-`Test Attention Map at time 3`
-
-![Test Attention_Map_3](./data/images/atte_map_3.png)
-
-`Test Attention Map at time 4`
-
-![Test Attention_Map_4](./data/images/atte_map_4.png)
-
 ## Train your own model
 
 #### Data Preparation
