@@ -1,6 +1,0 @@
-QUICK SUMMARY
-==================================================
-Image: 805_rain
-Scene: NIGHT
-PSNR: 16.70 dB
-SSIM: 0.66398

@@ -1,6 +1,0 @@
-QUICK SUMMARY
-==================================================
-Image: 802_rain
-Scene: DAY
-PSNR: 20.19 dB
-SSIM: 0.85564

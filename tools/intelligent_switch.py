@@ -63,7 +63,7 @@ class ConfigManager:
             'default_output_dir': 'enhanced_results'
         },
         'rain_detection': {
-            'threshold': 0.179,
+            'threshold': 0.068,
         },
         'glare_detection': {
             'brightness_threshold': 220,

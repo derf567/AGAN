@@ -1,6 +1,0 @@
-QUICK SUMMARY
-==================================================
-Image: 769_rain
-Scene: DEFAULT
-PSNR: 24.07 dB
-SSIM: 0.88215
