@@ -106,15 +106,6 @@ your local tensorflow may be a nice option. Good luck on training process!
 
 Thanks for the issues by [Jay-Jia](https://github.com/Jay-Jia)
 
-## Update on 2018.10.12
-Adjust the initialized learning rate and using exponential decay
-strategy to adjust the learning rate during training process. Using
-traditional image augmentation function including random crop and 
-random flip to augment the training dataset which protomed the new
-model performance. I have uploaded a new tensorboard record file and
-you can check the image ssim to compare the two models. New
-model weights can be found under weights/new_model folder.
-
 `Model result comparison`
 ![Comparison_result](./data/images/model_comparison.png)
 
