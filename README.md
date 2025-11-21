@@ -1,120 +1,165 @@
-User Manual
-Overview
-The "Attentive GAN DerainNet" is a Python-based deep learning toolkit for removing rain and raindrop artifacts from single images using a Generative Adversarial Network (GAN) with attention mechanisms. It is built on top of TensorFlow and is based on the CVPR 2018 paper "Attentive Generative Adversarial Network for Raindrop Removal from a Single Image".​
+Attentive GAN DerainNet
 
-Installation
-Requirements:
+A Python-based deep learning toolkit for removing rain and raindrop artifacts from single images using an Attentive Generative Adversarial Network (GAN).
+The framework is based on the CVPR 2018 paper:
+“Attentive Generative Adversarial Network for Raindrop Removal from a Single Image.”
 
-Python (preferably 3.5+)
+✨ Features
 
-TensorFlow (1.15 recommended)
+Removes rain streaks and raindrops from single images
 
-CUDA and cuDNN for GPU support
+Generator uses attentive recurrent ConvLSTM + contextual autoencoder
 
-Other dependencies listed in requirements.txt
+Adversarial training with multi-loss optimization
 
-Steps:
+Includes tools for training, inference, TFRecords dataset preparation, and export to TensorFlow SavedModel / TFJS
 
-Clone the repo:
+TensorBoard monitoring support
 
-text
-git clone https://github.com/derf567/attentive-gan-derainnet-
-cd attentive-gan-derainnet-
+📦 Installation
+Requirements
+
+Python 3.5+
+
+TensorFlow 1.15 (recommended)
+
+CUDA + cuDNN (optional, for GPU acceleration)
+
+Additional dependencies in requirements.txt
+
+Steps
+
+Clone the repository:
+
+git clone https://github.com/derf567/attentive-gan-derainnet
+cd attentive-gan-derainnet
+
+
 Install dependencies:
 
-text
 pip install -r requirements.txt
-(Optional) Set up CUDA and cuDNN for GPU acceleration.
 
-How to Use
-Testing (Inference)
-To run the deraining model on a test image:
 
-text
-python tools/test_model.py --weights_path ./weights/derain_gan/derain_gan.ckpt-xxxxxx --image_path PATH_TO_IMAGE
-Replace PATH_TO_IMAGE with your test image file path.
+(Optional) Install and configure CUDA and cuDNN for GPU support.
 
-Replace weights path with your trained/checkpointed weights.​
+🧪 Inference (Testing)
 
-Training
-Prepare Data:
+Run deraining on a single image:
 
-Organize your dataset into two folders:
+python tools/test_model.py \
+    --weights_path ./weights/derain_gan/derain_gan.ckpt-xxxxxx \
+    --image_path PATH_TO_IMAGE
 
-rain_image/ : Images with rain
 
-clean_image/ : Ground-truth clean images​
+Replace PATH_TO_IMAGE with your input image and update the checkpoint path accordingly.
 
-Convert to TFRecords:
+🏋️ Training
+1. Prepare Dataset
 
-text
-python data_provider/data_feed_pipline.py --dataset_dir DATASET_ROOT --tfrecords_dir TFRECORDS_SAVE_DIR
-Train the Model:
+Organize training images into:
 
-text
+dataset_root/
+    rain_image/    # Rainy input images
+    clean_image/   # Ground-truth clean images
+
+2. Convert to TFRecords
+python data_provider/data_feed_pipline.py \
+    --dataset_dir DATASET_ROOT \
+    --tfrecords_dir TFRECORDS_SAVE_DIR
+
+3. Train the Model
 python tools/train_model.py --dataset_dir DATASET_ROOT
-Training parameters (epochs, batch size, learning rate) can be set in global_configuration/config.py.​
 
-Exporting
-To export the model to TensorFlow SavedModel or TFJS:
 
-text
-python tools/export_tf_saved_model.py --export_dir SAVE_DIR --ckpt_path CKPT_PATH
+Configure learning rate, epochs, batch size, and paths in:
+
+global_configuration/config.py
+
+
+Recommended training settings:
+
+Initial learning rate: 0.002
+
+Batch size: 1 (no batch normalization needed)
+
+Training iterations: 100,000+
+
+🛰️ Exporting Models
+Export to TensorFlow SavedModel
+python tools/export_tf_saved_model.py \
+    --export_dir SAVE_DIR \
+    --ckpt_path CKPT_PATH
+
+Convert to TensorFlow.js
 bash tools/convert_tfjs_model.sh
-Refer to repo scripts for details.​
 
-Monitoring Training
-Training progress can be monitored using TensorBoard.​
 
-Technical Manual
+See repository scripts for customization details.
+
+📊 Monitoring Training
+
+Use TensorBoard to visualize losses, images, and attention maps:
+
+tensorboard --logdir=LOG_DIR
+
+🧠 Technical Overview
 Architecture
-Generator: Attentive-recurrent network (using ConvLSTM), Contextual Autoencoder
 
-Discriminator: Standard CNN-based network
+Generator:
 
-Attention map: Helps to locate and highlight rain regions for effective deraining
+Attentive recurrent network using ConvLSTM
 
-Loss functions: Multi-scale loss, perceptual loss, adversarial loss
+Contextual autoencoder for detailed restoration
 
-Scripts Overview
-train_model.py: Model training entry point.
+Discriminator:
 
-test_model.py: Model inference/test entry point.
+Standard CNN-based discriminator
 
-data_feed_pipline.py: Data conversion to TFRecords for efficient feeding.
+Attention Mechanism:
 
-export_tf_saved_model.py: Save trained model for deployment.
+Highlights and localizes rain/raindrop regions
 
-convert_tfjs_model.sh: Converts TensorFlow model to JS format for web usage.
+Loss Functions:
 
-Configuration
-Most model and training parameters are found in global_configuration/config.py.​
+Multi-scale loss
 
-Learning rate, epochs, batch size
+Perceptual loss
 
-Paths for checkpoints and datasets
+Adversarial loss
 
-Dataset Preparation
-Training pairs should be of matching resolution, typically organized under rain_image/ and clean_image/.
+📁 Script Overview
+Script	Description
+tools/train_model.py	Main training entry point
+tools/test_model.py	Run inference on images
+data_provider/data_feed_pipline.py	Convert datasets to TFRecords
+tools/export_tf_saved_model.py	Export model to SavedModel
+tools/convert_tfjs_model.sh	Convert model to TensorFlow.js
+🗂️ Configuration
 
-Automatic scaling and TFRecords conversion.​
+Main configuration file:
 
-Model Training
-Default batch size: 1 (removes need for Batch Normalization).​
+global_configuration/config.py
 
-Recommended initial learning rate: 0.002.
 
-Training is typically performed for over 100,000 iterations.
+Contains:
 
-Inference Procedure
-Loads pre-trained weights and applies the deraining GAN to input images for restoration.
+Learning rate
 
-Outputs both derained images and attention maps visualizing rain localization.
+Epochs
 
-Export and Deployment
-Models can be exported to the standard TensorFlow SavedModel format for serving.
+Batch size
 
-Optionally, conversion to TensorFlow.js is supported for browser inference.​
+Dataset + checkpoint paths
 
-References
-Attentive Generative Adversarial Network for Raindrop Removal from A Single Image (CVPR 2018).​
+🖼️ Inference Output
+
+The inference script produces:
+
+Derained image
+
+Attention map (visualizing rain regions)
+
+📚 Reference
+
+Attentive Generative Adversarial Network for Raindrop Removal from a Single Image
+CVPR, 2018.
